@@ -1,0 +1,22 @@
+<table class="table">
+  <tr>
+    <th>Bet</th>
+    <th>Date</th>
+    <th>Category</th>
+    <th>Bet Type</th>
+    <th>Stake</th>
+    <th>Return</th>
+    <th></th>
+  </tr>
+  <% @accas.each do |acca| %>
+    <tr>
+      <td><%= link_to get_acca_selections(acca).truncate(100), "", class: "open-modal" %></td>
+      <td><%= acca.date.strftime("%d/%m/%Y") %></td>
+      <td><%= acca.category %></td>
+      <td><%= acca.bet_type %></td>
+      <td><%= number_to_currency(acca.stake, unit: "£") %></td>
+      <td><span class="tag <%= acca.return > 0 ? 'profit' : 'loss' %>"><%= number_to_currency(acca.return, unit: "£") %></span></td>
+      <td><%= link_to "Edit", edit_acca_path(acca) %></td>
+    </tr>
+  <% end %>
+</table>

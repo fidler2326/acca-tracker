@@ -1,0 +1,37 @@
+.btn {
+  display: inline-block;
+  padding: 10px;
+  outline: 0; border: 0;
+  border-radius: $border_radius;
+  color: #fff;
+  &.btn-primary {
+    background-color: $primary;
+    border: 1px solid $primary;
+  }
+}
+
+.checkbox-group {
+  display: flex;
+  max-width: 560px;
+  border: 1px solid $border_color;
+  border-radius: $border_radius;
+  label {
+    width: 100%;
+    input { display: none; }
+    span {
+      width: 100%;
+      display: inline-block;
+      padding: 10px 15px;
+      border-right: 1px solid $border_color;
+      text-align: center;
+      cursor: pointer;
+    }
+    &:last-child span{
+      border: 0;
+    }
+    input:checked + span {
+      background-color: $primary;
+      color: #fff;
+    }
+  }
+}

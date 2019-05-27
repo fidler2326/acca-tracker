@@ -1,0 +1,33 @@
+<div class="leg-row relative nested-fields">
+  <div class="form-group-inline">
+    <div class="form-group ui-widget">
+      <%= f.text_field :selection, class: "selections", placeholder: "Selection" %>
+    </div>
+    <div class="form-group ui-widget">
+      <%= f.text_field :opponent, class: "selections", placeholder: "Opponent" %>
+    </div>
+    <div class="form-group">
+      <%= f.select :leg_type, options_for_select(Leg::BET_TYPES) %>
+    </div>
+  </div>
+
+  <div class="checkbox-group">
+    <label class="result-checkbox">
+      <%= f.check_box :won, checked: true %>
+      <span><i class="fa fa-smile-o" aria-hidden="true"></i> Won</span>
+    </label>
+    <label class="result-checkbox">
+      <%= f.check_box :placed %>
+      <span><i class="fa fa-meh-o" aria-hidden="true"></i> Placed</span>
+    </label>
+    <label class="result-checkbox">
+      <%= f.check_box :lost %>
+      <span><i class="fa fa-frown-o" aria-hidden="true"></i> Lost</span>
+    </label>
+    <label class="result-checkbox">
+      <%= f.check_box :void %>
+      <span><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Void</span>
+    </label>
+  </div>
+  <%= link_to_remove_association "Remove Selection", f, class: "remove-leg" %>
+</div>

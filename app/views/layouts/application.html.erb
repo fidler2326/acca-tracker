@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AccaTrackerRails</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if current_user %>
+      <header>
+        <%= link_to "Acca Tracker".html_safe, root_path, class: "logo" %>
+        <nav>
+          <ul>
+            <li><%= link_to "Accas", accas_path %></li>
+            <li><a href="#">Teams</a></li>
+            <li><a href="#">Horses</a></li>
+            <li><a href="#">Settings</a></li>
+            <li class="divide"></li>
+            <li><%= link_to("Logout", destroy_user_session_path, :method => :delete) %></li>
+          </ul>
+        </nav>
+      </header>
+    <% end %>
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <!-- <nav class="main-menu">
+      <ul>
+        <li><%= link_to "View Accas", accas_path %></li>
+        <li><%= link_to "Add New Acca", new_acca_path %></li>
+      </ul>
+    </nav>
+    <a href="#" class="btn-float" id="toggle_menu">+</a> -->
+  </body>
+</html>

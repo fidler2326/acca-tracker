@@ -1,0 +1,73 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%; max-width: 180px;
+  margin: 0 0 10px 0;
+  &.small { max-width: 100px; }
+  * { outline: 0; }
+  label {
+    margin: 0 0 3px 0;
+    text-transform: capitalize;
+  }
+  input {
+    padding: 10px 8px;
+    border: 1px solid $border_color;
+    border-radius: $border_radius;
+    &:focus {
+      border-color: $primary;
+    }
+  }
+  select {
+    height: 35px;
+    background-color: #fff;
+    border: 1px solid $border_color;
+  }
+}
+
+.form-group-inline {
+  display: flex;
+  flex-direction: row;
+  .form-group {
+    margin-right: 10px;
+    &:last-of-type { margin-right: 0; }
+  }
+}
+
+// Multi select
+// ------------
+
+/*
+<!-- Example HTML -->
+<div class="form-group multi">
+  <select class="form-control multi-select"></select>
+</div>
+*/
+
+.form-group.multi {
+  position: relative;
+  button {
+    width: 100%;
+    padding: 10px 8px;
+    background-color: #fff;
+    outline: 0;
+    border: 1px solid $border_color;
+    border-radius: $border_radius;
+    color: $default;
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    &:after {
+      content: '';
+      width: 0; height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid $default;
+      position: absolute;
+      top: 50%; right: 10px;
+      transform: translate(0,-50%);
+    }
+  }
+}

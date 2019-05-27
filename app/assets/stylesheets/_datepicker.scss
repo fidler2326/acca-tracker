@@ -1,0 +1,77 @@
+// Datepicker
+// ----------
+
+.glyphicon{
+  display: inline-block;
+  // Use font awesome because we don't have glyphicons
+  font-family: "FontAwesome";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Icons
+.glyphicon-time:before{ content: "\f017"; }
+.glyphicon-chevron-left:before{ content: "\f100"; }
+.glyphicon-chevron-right:before{ content: "\f101"; }
+.glyphicon-chevron-up:before{ content: "\f102"; }
+.glyphicon-chevron-down:before{ content: "\f103"; }
+.glyphicon-calendar:before{ content: "\f073"; }
+
+// Show/hide
+.collapse{
+  display: none;
+  &.in{
+    display: block;
+  }
+}
+
+// Style calendar container
+.dropdown-menu{
+  position: absolute;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid $border_color;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  // Remove list styles
+  .list-unstyled{
+    padding-left: 0;
+    list-style: none;
+  }
+}
+
+// Style calendar
+.dropdown-menu table tr th,
+.dropdown-menu table tr td{
+  padding: 3px;
+  &.active{
+    background-color: $primary !important;
+    color: #fff !important;
+  }
+}
+
+// Style calendar buttons
+.dropdown-menu .btn{
+  padding: 0;
+  background-color: $primary;
+  border-radius: 5px;
+  &:hover{
+    background-color: $primary;
+  }
+  span{
+    background-color: transparent !important;
+  }
+}
