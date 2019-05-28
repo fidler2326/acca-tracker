@@ -4,9 +4,15 @@
   outline: 0; border: 0;
   border-radius: $border_radius;
   color: #fff;
+  transition: 0.3s ease;
   &.btn-primary {
     background-color: $primary;
     border: 1px solid $primary;
+  }
+  &:hover {
+    background-color: lighten($primary,5%);
+    color: #fff;
+    text-decoration: none;
   }
 }
 

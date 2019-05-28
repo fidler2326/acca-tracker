@@ -165,6 +165,20 @@ a{
   }
 }
 
+// Border radius
+// -------------
+.border-radius-left {
+  border-radius: $border_radius 0 0 $border_radius !important;
+}
+
+.border-radius-right {
+  border-radius: 0 $border_radius $border_radius 0 !important;
+}
+
+.border-radius-none {
+  border-radius: 0 !important;
+}
+
 // Loading spinner
 // ---------------
 .loading-spinner{

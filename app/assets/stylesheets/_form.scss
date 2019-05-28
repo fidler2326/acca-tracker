@@ -10,15 +10,18 @@
     text-transform: capitalize;
   }
   input {
-    padding: 10px 8px;
+    width: 100%;
+    margin: 0; padding: 10px 8px;
     border: 1px solid $border_color;
     border-radius: $border_radius;
+    font-family: $font_family;
+    font-size: 14px;
     &:focus {
       border-color: $primary;
     }
   }
   select {
-    height: 35px;
+    height: 38px;
     background-color: #fff;
     border: 1px solid $border_color;
   }
@@ -46,7 +49,7 @@
 .form-group.multi {
   position: relative;
   button {
-    width: 100%;
+    width: 100%; height: 38px;
     padding: 10px 8px;
     background-color: #fff;
     outline: 0;

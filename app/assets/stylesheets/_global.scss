@@ -6,6 +6,9 @@ $danger: #FF3B30;
 $default: #333;
 $border_color: #bbb;
 $border_radius: 3px;
+$font_family: 'Roboto', sans-serif;
+
+$mobile: 680px;
 
 * {
   margin: 0; padding: 0;
@@ -15,9 +18,12 @@ $border_radius: 3px;
 body {
   background-color: #f4f4f4;
   color: $default;
-  font-family: 'Roboto', sans-serif;
+  font-family: $font_family;
   font-weight: 500;
   font-size: 14px;
+  &.extra-padding {
+    padding: 0 0 55px 0;
+  }
 }
 
 header {
@@ -69,6 +75,9 @@ header {
 
 .container {
   padding: 20px;
+  @media (max-width: $mobile) {
+    padding: 10px;
+  }
 }
 
 .btn-float {
