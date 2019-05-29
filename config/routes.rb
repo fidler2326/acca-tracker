@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :accas
+  resources :accas do
+    collection do
+      get :get_acca
+    end
+  end
 
   # namespace :api, defaults: { format: :json } do
     namespace :v1 do

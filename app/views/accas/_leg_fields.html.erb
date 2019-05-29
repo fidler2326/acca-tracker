@@ -1,15 +1,18 @@
 <div class="relative mar-top-5 nested-fields">
   <div class="leg-container">
     <div class="flex-row">
-      <div class="form-group no-margin ui-widget">
+      <div class="form-group full no-margin">
+        <%= f.select :leg_type, options_for_select(Leg::BET_TYPES) %>
+      </div>
+    </div>
+
+    <div class="flex-row mar-top-5">
+      <div class="form-group full no-margin ui-widget">
         <%= f.text_field :selection, class: "selections", placeholder: "Selection" %>
       </div>
       <div class="vs"><span>vs</span></div>
-      <div class="form-group no-margin ui-widget">
+      <div class="form-group full no-margin ui-widget">
         <%= f.text_field :opponent, class: "selections", placeholder: "Opponent" %>
-      </div>
-      <div class="form-group no-margin mar-left-5">
-        <%= f.select :leg_type, options_for_select(Leg::BET_TYPES) %>
       </div>
     </div>
 

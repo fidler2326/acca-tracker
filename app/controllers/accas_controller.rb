@@ -59,6 +59,10 @@ class AccasController < ApplicationController
     end
   end
 
+  def get_acca
+    @acca = Acca.find(params[:id])
+  end
+
   private
   def acca_params
     params.require(:acca).permit(:date, :category, :type, :stake, :return, legs_attributes: [:id, :type, :selection, :opponent, :won, :placed, :lost, :void, :_destroy])

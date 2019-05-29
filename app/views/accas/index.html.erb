@@ -6,3 +6,30 @@
 </div>
 
 <%= render "accas" %>
+
+<div class="modal-overlay" style="display:none;">
+  <div class="modal">
+    <a href="#" class="close-modal"></a>
+    <div class="modal-body">
+      <div id="modal_data"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $("body").on("click",".get-acca",function(event) {
+      event.preventDefault();
+      var acca_id = $(this).data("acca-id");
+      $.ajax({
+        url: "/accas/get_acca",
+        type: "GET",
+        data: { "id": acca_id },
+        dataType: "script",
+        format: "js",
+      }).success(function() {
+
+      });
+    });
+  })
+</script>

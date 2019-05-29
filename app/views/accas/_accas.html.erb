@@ -1,26 +1,34 @@
 <% unless @accas.empty? %>
-  <table class="table">
-    <tr>
-      <th>Bet</th>
-      <th>Date</th>
-      <th>Category</th>
-      <th>Bet Type</th>
-      <th>Stake</th>
-      <th>Return</th>
-      <th></th>
-    </tr>
-    <% @accas.each do |acca| %>
-      <tr>
-        <td><%= link_to get_acca_selections(acca).truncate(100), "", class: "open-modal" %></td>
-        <td><%= acca.date.strftime("%d/%m/%Y") %></td>
-        <td><%= acca.category %></td>
-        <td><%= acca.bet_type %></td>
-        <td><%= number_to_currency(acca.stake, unit: "£") %></td>
-        <td><span class="tag <%= acca.return > 0 ? 'profit' : 'loss' %>"><%= number_to_currency(acca.return, unit: "£") %></span></td>
-        <td><%= link_to "Edit", edit_acca_path(acca) %></td>
-      </tr>
-    <% end %>
-  </table>
+  <% @accas.each do |acca| %>
+    <div class="card">
+      <div class="card-header">
+        <p class="muted"><%= acca.date.strftime("%d/%m/%Y") %></p>
+        <%= link_to "<i class='fa fa-pencil' aria-hidden='true'></i> Edit".html_safe, edit_acca_path(acca) %>
+      </div>
+      <div class="card-body">
+        <%= link_to get_acca_selections(acca), "", class: "open-modal get-acca", data: { acca_id: acca.id } %>
+        <p class="muted">Bet Type: <%= acca.bet_type %> | Category: <%= acca.category %></p>
+      </div>
+      <div class="card-footer">
+        <table class="outlined">
+          <tr>
+            <td style="width:50%;">
+              <div>
+                <p>Stake:</p>
+                <p><%= number_to_currency(acca.stake, unit: "£") %></p>
+              </div>
+            </td>
+            <td style="width:50%;">
+              <div>
+                <p>Return:</p>
+                <p><span class="tag <%= acca.return > 0 ? 'profit' : 'loss' %>"><%= number_to_currency(acca.return, unit: "£") %></span></p>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  <% end %>
 <% else %>
   <div class="alert alert-info">No Accas</div>
 <% end %>

@@ -4,6 +4,8 @@
   outline: 0; border: 0;
   border-radius: $border_radius;
   color: #fff;
+  font-size: 14px;
+  font-weight: 500;
   transition: 0.3s ease;
   &.btn-primary {
     background-color: $primary;

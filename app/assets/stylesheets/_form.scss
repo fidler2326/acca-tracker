@@ -4,7 +4,11 @@
   width: 100%; max-width: 180px;
   margin: 0 0 10px 0;
   &.small { max-width: 100px; }
+  &.full { max-width: initial; }
   * { outline: 0; }
+  @media (max-width: $mobile) {
+    max-width: initial;
+  }
   label {
     margin: 0 0 3px 0;
     text-transform: capitalize;
@@ -24,6 +28,7 @@
     height: 38px;
     background-color: #fff;
     border: 1px solid $border_color;
+    border-radius: $border_radius;
   }
 }
 
@@ -33,6 +38,12 @@
   .form-group {
     margin-right: 10px;
     &:last-of-type { margin-right: 0; }
+  }
+  @media (max-width: $mobile) {
+    flex-direction: column;
+    .form-group {
+      margin: 0 0 5px 0;
+    }
   }
 }
 

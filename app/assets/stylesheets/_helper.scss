@@ -28,6 +28,7 @@ a{
 // Flexbox
 // -------
 .flex{ display: flex; }
+// .flex-full { width: 100%; }
 .flex-row{ display: flex; flex-direction: row; }
 .flex-column{ display: flex; flex-direction: column; }
 .v-middle{ align-items: center; }
@@ -99,6 +100,10 @@ a{
   pointer-events: none;
 }
 
+// Text styles
+// -----------
+.muted { opacity: 0.5; }
+
 // Tags
 // ----
 .tag{
@@ -163,20 +168,6 @@ a{
       opacity: 1;
     }
   }
-}
-
-// Border radius
-// -------------
-.border-radius-left {
-  border-radius: $border_radius 0 0 $border_radius !important;
-}
-
-.border-radius-right {
-  border-radius: 0 $border_radius $border_radius 0 !important;
-}
-
-.border-radius-none {
-  border-radius: 0 !important;
 }
 
 // Loading spinner

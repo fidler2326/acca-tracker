@@ -1,31 +1,31 @@
 <% @body_class = "extra-padding" %>
 
 <%= form_for @acca do |f| %>
-  <div class="form-group-inline">
-    <div class="form-group relative">
-      <%= f.label :date %>
-      <%= f.text_field :date %>
+  <div class="acca-form-container">
+    <div class="form-group-inline">
+      <div class="form-group relative">
+        <%= f.text_field :date %>
+      </div>
+      <div class="form-group">
+        <%= f.select :category, options_for_select(Acca::CATEGORIES), prompt: "Select Category" %>
+      </div>
+      <div class="form-group multi relative">
+        <%= select_tag :bet_type, options_for_select(Acca::BET_TYPES), prompt: "Select Bet Type", class: "multi-select" %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.label :category %>
-      <%= f.select :category, options_for_select(Acca::CATEGORIES), prompt: "Select Category" %>
-    </div>
-    <div class="form-group multi relative">
-      <%= f.label :bet_type %>
-      <%= select_tag :bet_type, options_for_select(Acca::BET_TYPES), prompt: "Select Bet Type", class: "multi-select" %>
-    </div>
-  </div>
 
-  <div class="line-divide"></div>
 
-  <h2>Selections</h2>
+    <div class="line-divide"></div>
 
-  <div class="mar-top-10" id="legs">
-    <%= f.fields_for :legs do |leg| %>
-      <%= render "leg_fields", f: leg %>
-    <% end %>
-    <div class="links mar-top-5">
-      <%= link_to_add_association 'Add Selection', f, :legs %>
+    <h2>Selections</h2>
+
+    <div class="mar-top-10" id="legs">
+      <%= f.fields_for :legs do |leg| %>
+        <%= render "leg_fields", f: leg %>
+      <% end %>
+      <div class="links mar-top-5">
+        <%= link_to_add_association 'Add Selection', f, :legs %>
+      </div>
     </div>
   </div>
 
@@ -36,7 +36,7 @@
     <div class="form-group no-margin mar-right-5">
       <%= f.text_field :return, placeholder: "£ Return" %>
     </div>
-    <%= f.submit "Save", class: "btn btn-primary" %>
+    <%= f.submit "Save Acca", class: "btn btn-primary" %>
   </div>
 <% end %>
 

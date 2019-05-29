@@ -5,7 +5,7 @@
 
 .leg-container {
   display: inline-block;
-  width: 100%; max-width: 572px;
+  width: 100%; max-width: 560px;
   padding: 5px;
   background-color: #fff;
   border: 1px solid $border_color;
@@ -48,5 +48,38 @@
     background-color: #fff;
     position: relative;
     z-index: 1;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 5px 0;
+  background-color: #fff;
+  border: 1px solid $border_color;
+  border-radius: $border_radius;
+  overflow: hidden;
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid $border_color;
+  }
+  .card-body {
+    padding: 10px 5px;
+  }
+  .card-footer {
+    table {
+      width: calc(100% + 2px);
+      margin: 0 -1px -1px -1px;
+      tr td {
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+    }
   }
 }

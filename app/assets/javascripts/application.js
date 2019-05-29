@@ -26,4 +26,15 @@ $(document).ready(function() {
     $(".main-menu,#toggle_menu").toggleClass("active")
     return false;
   });
+
+  $("body").on("click",".open-modal",function(event) {
+    event.preventDefault();
+    $(".modal-overlay").show();
+  });
+
+  $("body").on("click",".close-modal",function(event) {
+    event.preventDefault();
+    $("#modal_data").empty();
+    $(".modal-overlay").hide();
+  });
 });
