@@ -21,7 +21,7 @@
 //= require bootstrap-multiselect
 //= require_tree .
 
-$(document).ready(function() {
+$( document ).on('turbolinks:load', function() {
   $("body").on("click","#toggle_menu",function() {
     $(".main-menu,#toggle_menu").toggleClass("active")
     return false;
@@ -29,12 +29,12 @@ $(document).ready(function() {
 
   $("body").on("click",".open-modal",function(event) {
     event.preventDefault();
-    $(".modal-overlay").show();
+    $(".modal-overlay").fadeIn();
   });
 
   $("body").on("click",".close-modal",function(event) {
     event.preventDefault();
     $("#modal_data").empty();
-    $(".modal-overlay").hide();
+    $(".modal-overlay").fadeOut();
   });
 });

@@ -1,2 +1,40 @@
 <h1>Acca</h1>
-<%= @acca.inspect %>
+<small class="muted"><%= @acca.date %></small>
+
+<table class="outlined mar-top-20">
+  <tr>
+    <td>Bet Type: <%= @acca.bet_type %></td>
+    <td>Category: <%= @acca.category %></td>
+  </tr>
+  <tr>
+    <td>Stake: <%= @acca.stake %></td>
+    <td>Return: <%= @acca.return %></td>
+  </tr>
+</table>
+
+<div class="line-divide"></div>
+
+<% @acca.legs.each do |leg| %>
+  <div class="selection-card-container mar-top-5 <%= leg_class(leg) %>">
+    <div class="selection-card">
+      <div class="selection-card-header">
+        <div class="flex-full h-middle v-middle">Your Selection</div>
+        <div class="vs small"></div>
+        <div class="flex-full h-middle v-middle">Opponent</div>
+      </div>
+      <div class="selection-card-body">
+        <div class="flex-full h-middle v-middle upcase text-overflow">
+          <%= Selection.find(leg.selection).name %>
+        </div>
+        <div class="vs small"><span>vs</span></div>
+        <div class="flex-full h-middle v-middle upcase text-overflow">
+          <%= Selection.find(leg.opponent).name %>
+        </div>
+      </div>
+      <div class="selection-card-footer">
+        <p class="muted">Leg Type:</p>
+        <p class="muted"><%= leg.leg_type %></p>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -4,7 +4,7 @@ class AccasController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @accas = current_user.accas
+    @accas = current_user.accas.order("date DESC")
   end
 
   def new
@@ -65,6 +65,6 @@ class AccasController < ApplicationController
 
   private
   def acca_params
-    params.require(:acca).permit(:date, :category, :type, :stake, :return, legs_attributes: [:id, :type, :selection, :opponent, :won, :placed, :lost, :void, :_destroy])
+    params.require(:acca).permit(:date, :category, :bet_type, :stake, :return, legs_attributes: [:id, :leg_type, :selection, :opponent, :won, :placed, :lost, :void, :_destroy])
   end
 end

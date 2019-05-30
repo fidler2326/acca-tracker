@@ -10,7 +10,7 @@
         <%= f.select :category, options_for_select(Acca::CATEGORIES), prompt: "Select Category" %>
       </div>
       <div class="form-group multi relative">
-        <%= select_tag :bet_type, options_for_select(Acca::BET_TYPES), prompt: "Select Bet Type", class: "multi-select" %>
+        <%= f.select :bet_type, options_for_select(Acca::BET_TYPES), prompt: "Select Bet Type" %>
       </div>
     </div>
 
