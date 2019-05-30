@@ -88,7 +88,7 @@
 }
 
 .selection-card-container {
-  padding: 0 0 0 42px;
+  padding: 0 0 0 40px;
   position: relative;
   &:last-of-type {
     &:after { display: none; }
@@ -98,12 +98,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px; height: 32px;
+    width: 30px; height: 30px;
     background-color: #f5f5f5;
     border: 1px solid $border_color;
-    border-radius: 100%;
+    border-radius: $border_radius;
     color: #fff;
-    font-size: 15px;
+    font-size: 12px;
     position: absolute;
     top: 0; left: 0;
     z-index: 2;
@@ -113,7 +113,7 @@
     width: 1px; height: calc(100% + 10px);
     background-color: $border_color;
     position: absolute;
-    top: 0; left: 16px;
+    top: 0; left: 15px;
     z-index: 1;
   }
   &.won {
@@ -157,9 +157,10 @@
     }
     .selection-card-body {
       display: flex;
+      flex-direction: column;
       padding: 5px;
       border: 1px solid $border_color;
-      border-top: 0;
+      border-radius: $border_radius $border_radius 0 0;
     }
     .selection-card-footer {
       display: flex;
