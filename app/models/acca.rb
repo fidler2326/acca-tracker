@@ -1,7 +1,7 @@
 class Acca < ActiveRecord::Base
   belongs_to :user
 
-  has_many :legs, inverse_of: :acca
+  has_many :legs, inverse_of: :acca, dependent: :delete_all
   accepts_nested_attributes_for :legs, reject_if: :all_blank, allow_destroy: true
 
   module Category

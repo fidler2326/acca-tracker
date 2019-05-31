@@ -1,5 +1,9 @@
-<h1>Acca</h1>
-<small class="muted"><%= @acca.date %></small>
+<div class="modal-header">
+  <h1>
+    Acca <small>[<%= @acca.date.strftime("%d/%m/%Y") %>]</small>
+  </h1>
+  <a href="#" class="close-modal"></a>
+</div>
 
 <table class="outlined mar-top-20">
   <tr>
@@ -17,11 +21,6 @@
 <% @acca.legs.each do |leg| %>
   <div class="selection-card-container mar-top-5 <%= leg_class(leg) %>">
     <div class="selection-card">
-      <!-- <div class="selection-card-header">
-        <div class="flex-full h-middle v-middle">Your Selection</div>
-        <div class="vs small"></div>
-        <div class="flex-full h-middle v-middle">Opponent</div>
-      </div> -->
       <div class="selection-card-body">
         <% if [Leg::Type::WIN,Leg::Type::EW,Leg::Type::DOUBLE_CHANCE,Leg::Type::DRAW_NO_BET,].include?(leg.leg_type) %>
           <h2><%= Selection.find(leg.selection).name %></h2>
@@ -29,13 +28,6 @@
           <h2><%= leg.leg_type %></h2>
         <% end %>
         <p class="muted"><%= Selection.find(leg.selection).name %> vs <%= Selection.find(leg.opponent).name %></p>
-        <!-- <div class="flex-full h-middle v-middle upcase text-overflow">
-          <%= Selection.find(leg.selection).name %>
-        </div>
-        <div class="vs small"><span>vs</span></div>
-        <div class="flex-full h-middle v-middle upcase text-overflow">
-          <%= Selection.find(leg.opponent).name %>
-        </div> -->
       </div>
       <div class="selection-card-footer">
         <p class="muted">Leg Type:</p>
@@ -44,3 +36,7 @@
     </div>
   </div>
 <% end %>
+
+<div class="divider"></div>
+
+<%= link_to "Delete This Acca", acca_path(@acca), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>

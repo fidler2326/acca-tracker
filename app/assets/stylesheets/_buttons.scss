@@ -10,10 +10,22 @@
   &.btn-primary {
     background-color: $primary;
     border: 1px solid $primary;
+    &:hover {
+      background-color: lighten($primary,5%);
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  &.btn-danger {
+    background-color: $danger;
+    border: 1px solid $danger;
+    &:hover {
+      background-color: lighten($danger,5%);
+      color: #fff;
+      text-decoration: none;
+    }
   }
   &:hover {
-    background-color: lighten($primary,5%);
-    color: #fff;
     text-decoration: none;
   }
 }

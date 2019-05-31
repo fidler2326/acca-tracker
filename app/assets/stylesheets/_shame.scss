@@ -161,6 +161,12 @@
       padding: 5px;
       border: 1px solid $border_color;
       border-radius: $border_radius $border_radius 0 0;
+      h2 {
+        font-size: 18px;
+      }
+      p {
+        font-size: 12px;
+      }
     }
     .selection-card-footer {
       display: flex;
@@ -170,6 +176,9 @@
       border: 1px solid $border_color;
       border-top: 0;
       border-radius: 0 0 $border_radius $border_radius;
+      p {
+        font-size: 12px;
+      }
     }
   }
 }

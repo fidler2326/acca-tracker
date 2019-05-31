@@ -34,7 +34,9 @@ $( document ).on('turbolinks:load', function() {
 
   $("body").on("click",".close-modal",function(event) {
     event.preventDefault();
-    $("#modal_data").empty();
     $(".modal-overlay").fadeOut();
+    setTimeout(function() {
+      $("#modal_data").empty();
+    },500);
   });
 });

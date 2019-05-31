@@ -52,6 +52,7 @@ class AccasController < ApplicationController
   end
 
   def destroy
+    @acca = Acca.find(params[:id])
     @acca.destroy
     respond_to do |format|
       format.html { redirect_to accas_path, notice: 'Acca was successfully destroyed.' }
