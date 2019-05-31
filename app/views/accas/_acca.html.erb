@@ -19,7 +19,9 @@
         <% else %>
           <h2><%= leg.leg_type %></h2>
         <% end %>
-        <p class="muted"><%= Selection.find(leg.selection).name %> vs <%= Selection.find(leg.opponent).name %></p>
+        <% if @acca.category == Acca::Category::FOOTBALL %>
+          <p class="muted"><%= Selection.find(leg.selection).name %> vs <%= Selection.find(leg.opponent).name %></p>
+        <% end %>
       </div>
       <div class="selection-card-footer">
         <p class="muted">Leg Type:</p>
