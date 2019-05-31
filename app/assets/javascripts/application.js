@@ -21,7 +21,7 @@
 //= require bootstrap-multiselect
 //= require_tree .
 
-$( document ).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function() {
   $("body").on("click","#toggle_menu",function() {
     $(".main-menu,#toggle_menu").toggleClass("active")
     return false;

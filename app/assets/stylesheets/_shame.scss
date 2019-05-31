@@ -126,8 +126,8 @@
   &.placed {
     &:before {
       content: "P";
-      background-color: $primary;
-      border-color: $primary;
+      background-color: $warning;
+      border-color: $warning;
     }
   }
   &.lost {

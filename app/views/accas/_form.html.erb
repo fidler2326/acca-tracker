@@ -7,7 +7,7 @@
         <%= f.text_field :date %>
       </div>
       <div class="form-group">
-        <%= f.select :category, options_for_select(Acca::CATEGORIES), prompt: "Select Category" %>
+        <%= f.select :category, options_for_select(Acca::CATEGORIES), {prompt: "Select Category"}, {onchange: "checkCategory()"} %>
       </div>
       <div class="form-group multi relative">
         <%= f.select :bet_type, options_for_select(Acca::BET_TYPES), prompt: "Select Bet Type" %>
@@ -41,7 +41,7 @@
 <% end %>
 
 <script>
-  $(document).ready(function() {
+  $(document).on('turbolinks:load', function() {
     // Multiselect
     // -----------
     $('.multi-select').multiselect({
@@ -68,6 +68,15 @@
     });
   });
 
+  // Show/hide opponent for different bet category
+  function checkCategory() {
+    if ($("#acca_category").val() != "Football") {
+      $(".opponent-field,.vs").hide();
+    } else {
+      $(".opponent-field,.vs").show();
+    }
+  }
+
   $("#acca_date").datetimepicker({
     defaultDate: moment(),
     format: 'DD-MM-YYYY'
@@ -82,5 +91,8 @@
         source: availableTags
       });
     });
+
+    // After insterting a new leg check the acca category and show/hide opponent field
+    checkCategory();
   });
 </script>

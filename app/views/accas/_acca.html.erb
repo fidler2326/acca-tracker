@@ -1,20 +1,12 @@
 <div class="modal-header">
   <h1>
-    Acca <small>[<%= @acca.date.strftime("%d/%m/%Y") %>]</small>
+    <%= @acca.bet_type %> <small>[<%= @acca.date.strftime("%d/%m/%Y") %>]</small>
   </h1>
   <a href="#" class="close-modal"></a>
 </div>
-
-<table class="outlined mar-top-20">
-  <tr>
-    <td>Bet Type: <%= @acca.bet_type %></td>
-    <td>Category: <%= @acca.category %></td>
-  </tr>
-  <tr>
-    <td>Stake: <%= @acca.stake %></td>
-    <td>Return: <%= @acca.return %></td>
-  </tr>
-</table>
+<div class="modal-notice <%= @acca.return > 0 ? 'success' : 'danger' %>">
+    <%= "#{@acca.return > 0 ? 'Well done!' : 'Unlucky!'}" %> Your stake of <%= number_to_currency(@acca.stake, unit: "£") %> returned <%= number_to_currency(@acca.return, unit: "£") %>
+</div>
 
 <div class="line-divide"></div>
 
