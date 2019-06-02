@@ -1,0 +1,10 @@
+<%= form_for @selection do |f| %>
+  <div class="form-group relative">
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-group">
+    <%= f.select :category, options_for_select(Selection::CATEGORIES), {prompt: "Select Category"} %>
+  </div>
+
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

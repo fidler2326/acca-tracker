@@ -25,7 +25,10 @@
             ticks: {
                 beginAtZero:true
             }
-        }]
+        }],
+        xAxes: [{
+          display: false,
+        }],
     }
 } %>
 <div class="page-title">
@@ -34,8 +37,8 @@
 
 <div class="flex-row" style="margin: 0 -10px;">
   <div class="widget-container full">
-    <h3 class="widget-title">This Week</h3>
     <div class="widget large">
+      <h3 class="widget-title">This Week</h3>
       <%= line_chart data, options %>
     </div>
   </div>
@@ -45,29 +48,29 @@
 
 <div class="flex-row" style="margin: 0 -10px;">
   <div class="widget-container quater">
-    <h3 class="widget-title">Profit / Loss</h3>
     <div class="widget">
+      <h3 class="widget-title">Profit / Loss</h3>
       <h2>+£78.62</h2>
     </div>
   </div>
 
   <div class="widget-container quater">
-    <h3 class="widget-title">Total Staked</h3>
     <div class="widget">
+      <h3 class="widget-title">Total Staked</h3>
       <h2>£48</h2>
     </div>
   </div>
 
   <div class="widget-container quater">
-    <h3 class="widget-title">Number Of Bets</h3>
     <div class="widget">
+      <h3 class="widget-title">Number Of Bets</h3>
       <h2>18</h2>
     </div>
   </div>
 
   <div class="widget-container quater">
-    <h3 class="widget-title">Lost By One</h3>
     <div class="widget">
+      <h3 class="widget-title">Lost By One</h3>
       <h2>3</h2>
     </div>
   </div>

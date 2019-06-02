@@ -104,6 +104,10 @@ a{
 // -----------
 .muted { opacity: 0.5; }
 
+.text-danger, .text-danger:hover { color: $danger; }
+.text-success, .success:hover { color: $success }
+.text-warning, .text-warning:hover { color: $warning; }
+
 // Tags
 // ----
 .tag{
