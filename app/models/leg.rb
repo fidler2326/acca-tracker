@@ -15,4 +15,10 @@ class Leg < ActiveRecord::Base
     UNDER_2_GOALS = "Under 2.5 Goals"
   end
   BET_TYPES = Type.constants.collect {|c| Type.const_get c }
+
+  module Course
+    ASCOT = "Ascot"
+    EPSOM = "Epsom"
+  end
+  COURSES = Course.constants.collect {|c| Course.const_get c }
 end

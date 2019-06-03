@@ -20,6 +20,16 @@
           <div class="form-group full ui-widget football-fields">
             <input name="opponent" class="selections" placeholder="Opponent" />
           </div>
+          <div class="form-group full horse-fields">
+            <select name="course">
+              <% Leg::COURSES.each do |course| %>
+                <option value="<%= course %>"><%= course %></option>
+              <% end %>
+            </select>
+          </div>
+          <div class="form-group full horse-fields">
+            <input name="race_time" placeholder="Race Time" />
+          </div>
           <div class="checkbox-group mar-top-5">
             <label class="result-checkbox">
               <input type="checkbox" name="won" checked />

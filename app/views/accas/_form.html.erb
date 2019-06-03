@@ -7,7 +7,7 @@
         <%= f.text_field :date %>
       </div>
       <div class="form-group">
-        <%= f.select :category, options_for_select(Acca::CATEGORIES), {prompt: "Select Category"}, {onchange: "checkCategory()"} %>
+        <%= f.select :category, options_for_select(Acca::CATEGORIES), {}, {onchange: "checkCategory()"} %>
       </div>
       <div class="form-group multi relative">
         <%= f.select :bet_type, options_for_select(Acca::BET_TYPES), prompt: "Select Bet Type" %>
@@ -44,19 +44,6 @@
 
 <script>
   $(document).on('turbolinks:load', function() {
-    // Set up modal fields
-    $("body").on("click",".add-leg",function(event) {
-      var category = $("#acca_category").val();
-      console.log("This",category);
-      if (category == "Football") {
-        $(".football-fields").show();
-        $(".horse-fields").hide();
-      } else {
-        $(".football-fields").hide();
-        $(".horse-fields").show();
-      }
-    });
-
     // Fill in form fields after closing modal
     $("body").on("click",".save-leg",function(event) {
       event.preventDefault();
@@ -101,9 +88,11 @@
   // Show/hide opponent for different bet category
   function checkCategory() {
     if ($("#acca_category").val() != "Football") {
-      $(".opponent-field,.vs").hide();
+      $(".football-fields").hide();
+      $(".horse-fields").show();
     } else {
-      $(".opponent-field,.vs").show();
+      $(".horse-fields").hide();
+      $(".football-fields").show();
     }
   }
 
@@ -115,7 +104,6 @@
   $("#legs").on("cocoon:after-insert", function(e, insertedItem) {
     var availableTags = <%= raw Selection.all.map(&:name) %>;
     $('.selections').on("focus", function(){
-      console.log("Yo")
       $(this).autocomplete({
         minLength: 2,
         source: availableTags

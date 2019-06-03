@@ -5,7 +5,7 @@
   <a href="#" class="close-modal" data-empty="true"></a>
 </div>
 <div class="modal-notice <%= @acca.return > 0 ? 'success' : 'danger' %>">
-    <%= "#{@acca.return > 0 ? 'Well done!' : 'Unlucky!'}" %> Your stake of <%= number_to_currency(@acca.stake, unit: "£") %> returned <%= number_to_currency(@acca.return, unit: "£") %>
+  <%= "#{@acca.return > 0 ? 'Well done!' : 'Unlucky!'}" %> Your stake of <%= number_to_currency(@acca.stake, unit: "£") %> returned <%= number_to_currency(@acca.return, unit: "£") %>
 </div>
 
 <div class="line-divide"></div>
@@ -21,6 +21,8 @@
         <% end %>
         <% if @acca.category == Acca::Category::FOOTBALL %>
           <p class="muted"><%= Selection.find(leg.selection).name %> vs <%= Selection.find(leg.opponent).name %></p>
+        <% else %>
+          <p class="muted"><%= leg.course %>: <%= leg.race_time.strftime("%H:%M") %></p>
         <% end %>
       </div>
       <div class="selection-card-footer">

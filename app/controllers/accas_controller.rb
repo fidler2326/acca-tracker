@@ -16,7 +16,18 @@ class AccasController < ApplicationController
     params[:acca][:legs_attributes].each do |k,leg|
       selection = get_selection leg[:selection]
       opponent = get_selection leg[:opponent]
-      Leg.create!(acca_id: Acca.last.id, leg_type: leg[:leg_type], selection: selection, opponent: opponent, won: leg[:won], placed: leg[:placed], lost: leg[:lost], void: leg[:void])
+      Leg.create!(
+        acca_id:   Acca.last.id,
+        leg_type:  leg[:leg_type],
+        selection: selection,
+        opponent:  opponent,
+        won:       leg[:won],
+        placed:    leg[:placed],
+        lost:      leg[:lost],
+        void:      leg[:void],
+        course:    leg[:course],
+        race_time: leg[:race_time]
+      )
     end
     redirect_to accas_path
   end
