@@ -24,7 +24,7 @@
         <%= render "leg_fields", f: leg %>
       <% end %>
       <div class="links mar-top-5">
-        <%= link_to_add_association 'Add Selection', f, :legs %>
+        <%= link_to_add_association 'Add Selection', f, :legs, class: "open-modal add-leg" %>
       </div>
     </div>
   </div>
@@ -40,10 +40,40 @@
   </div>
 <% end %>
 
+<%= render "leg_popup" %>
+
 <script>
   $(document).on('turbolinks:load', function() {
-    // Multiselect
-    // -----------
+    // Set up modal fields
+    $("body").on("click",".add-leg",function(event) {
+      var category = $("#acca_category").val();
+      console.log("This",category);
+      if (category == "Football") {
+        $(".football-fields").show();
+        $(".horse-fields").hide();
+      } else {
+        $(".football-fields").hide();
+        $(".horse-fields").show();
+      }
+    });
+
+    // Fill in form fields after closing modal
+    $("body").on("click",".save-leg",function(event) {
+      event.preventDefault();
+      $(".modal-overlay").fadeOut();
+      form_data = $(".popup-form").serializeArray();
+      $leg = $(".nested-fields").last();
+      $(form_data).each(function(i,field) {
+        if ($leg.find(".field_"+field["name"]).is(":checkbox")) {
+          $leg.find(".field_"+field["name"]).parent().parent().find("input").prop("checked",false);
+          $leg.find(".field_"+field["name"]).prop("checked",true);
+        } else {
+          $leg.find(".field_"+field["name"]).val(field["value"]);
+        }
+      });
+    });
+
+    // Multiselect setup
     $('.multi-select').multiselect({
       enableFiltering: true,
       enableCaseInsensitiveFiltering: true,

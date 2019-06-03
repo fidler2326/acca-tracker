@@ -2,7 +2,7 @@
   <h1>
     <%= @acca.bet_type %> <small>[<%= @acca.date.strftime("%d/%m/%Y") %>]</small>
   </h1>
-  <a href="#" class="close-modal"></a>
+  <a href="#" class="close-modal" data-empty="true"></a>
 </div>
 <div class="modal-notice <%= @acca.return > 0 ? 'success' : 'danger' %>">
     <%= "#{@acca.return > 0 ? 'Well done!' : 'Unlucky!'}" %> Your stake of <%= number_to_currency(@acca.stake, unit: "£") %> returned <%= number_to_currency(@acca.return, unit: "£") %>

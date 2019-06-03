@@ -34,9 +34,12 @@ $(document).on('turbolinks:load', function() {
 
   $("body").on("click",".close-modal",function(event) {
     event.preventDefault();
+    var empty = $(this).data("empty");
     $(".modal-overlay").fadeOut();
-    setTimeout(function() {
-      $("#modal_data").empty();
-    },500);
+    if (empty == "true") {
+      setTimeout(function() {
+        $("#modal_data").empty();
+      },500);
+    }
   });
 });
