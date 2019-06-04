@@ -1,11 +1,12 @@
 <% data = {
-  labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+  labels: ["","","","","","","",""],
   datasets: [
     {
         label: "Football",
         backgroundColor: "rgba(254, 88, 88,1)",
         borderColor: "rgba(254, 88, 88,1)",
         data: [
+          0,
           "#{get_day_returns(Date.today - 6.days,Acca::Category::FOOTBALL)}",
           "#{get_day_returns(Date.today - 5.days,Acca::Category::FOOTBALL)}",
           "#{get_day_returns(Date.today - 4.days,Acca::Category::FOOTBALL)}",
@@ -21,6 +22,7 @@
         backgroundColor: "rgba(99, 202, 185,1)",
         borderColor: "rgba(99, 202, 185,1)",
         data: [
+          0,
           "#{get_day_returns(Date.today - 6.days,Acca::Category::HORSE_RACING)}",
           "#{get_day_returns(Date.today - 5.days,Acca::Category::HORSE_RACING)}",
           "#{get_day_returns(Date.today - 4.days,Acca::Category::HORSE_RACING)}",
