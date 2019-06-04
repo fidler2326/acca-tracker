@@ -5,14 +5,30 @@
         label: "Football",
         backgroundColor: "rgba(254, 88, 88,1)",
         borderColor: "rgba(254, 88, 88,1)",
-        data: [-10, -25, 10, -5, 75, 100, 80],
+        data: [
+          "#{get_day_returns(Date.today - 6.days,Acca::Category::FOOTBALL)}",
+          "#{get_day_returns(Date.today - 5.days,Acca::Category::FOOTBALL)}",
+          "#{get_day_returns(Date.today - 4.days,Acca::Category::FOOTBALL)}",
+          "#{get_day_returns(Date.today - 3.days,Acca::Category::FOOTBALL)}",
+          "#{get_day_returns(Date.today - 2.days,Acca::Category::FOOTBALL)}",
+          "#{get_day_returns(Date.today - 1.days,Acca::Category::FOOTBALL)}",
+          "#{get_day_returns(Date.today,Acca::Category::FOOTBALL)}"
+        ],
         fill: false
     },
     {
         label: "Horse Racing",
         backgroundColor: "rgba(99, 202, 185,1)",
         borderColor: "rgba(99, 202, 185,1)",
-        data: [0, 175, 175, 175, 175, 175, 175],
+        data: [
+          "#{get_day_returns(Date.today - 6.days,Acca::Category::HORSE_RACING)}",
+          "#{get_day_returns(Date.today - 5.days,Acca::Category::HORSE_RACING)}",
+          "#{get_day_returns(Date.today - 4.days,Acca::Category::HORSE_RACING)}",
+          "#{get_day_returns(Date.today - 3.days,Acca::Category::HORSE_RACING)}",
+          "#{get_day_returns(Date.today - 2.days,Acca::Category::HORSE_RACING)}",
+          "#{get_day_returns(Date.today - 1.days,Acca::Category::HORSE_RACING)}",
+          "#{get_day_returns(Date.today,Acca::Category::HORSE_RACING)}"
+        ],
         fill: false
     }
   ]
@@ -35,43 +51,49 @@
   <h1>Dashboard</h1>
 </div>
 
-<div class="flex-row" style="margin: 0 -10px;">
-  <div class="widget-container full">
-    <div class="widget large">
-      <h3 class="widget-title">This Week</h3>
-      <%= line_chart data, options %>
-    </div>
-  </div>
-</div>
+<%= get_day_returns(Date.today - 1.days,'Football') %>
 
-<div class="line-divide"></div>
-
-<div class="flex-row" style="margin: 0 -10px;">
-  <div class="widget-container quater">
-    <div class="widget">
-      <h3 class="widget-title">Profit / Loss</h3>
-      <h2>+£78.62</h2>
+<div class="dashboard-container">
+  <div class="dashboard-half">
+    <div class="flex-row">
+      <div class="widget-container full">
+        <h3 class="widget-title">Last 7 Days</h3>
+        <div class="widget large">
+          <%= line_chart data, options %>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="widget-container quater">
-    <div class="widget">
-      <h3 class="widget-title">Total Staked</h3>
-      <h2>£48</h2>
-    </div>
-  </div>
+  <div class="dashboard-half">
+    <div class="flex-row flex-wrap flex-grow height-100 mobile-widget-scroller">
+      <div class="widget-container half">
+        <h3 class="widget-title">Profit / Loss</h3>
+        <div class="widget">
+          <h2>+£78.62</h2>
+        </div>
+      </div>
 
-  <div class="widget-container quater">
-    <div class="widget">
-      <h3 class="widget-title">Number Of Bets</h3>
-      <h2>18</h2>
-    </div>
-  </div>
+      <div class="widget-container half">
+        <h3 class="widget-title">Total Staked</h3>
+        <div class="widget">
+          <h2>£48</h2>
+        </div>
+      </div>
 
-  <div class="widget-container quater">
-    <div class="widget">
-      <h3 class="widget-title">Lost By One</h3>
-      <h2>3</h2>
+      <div class="widget-container half">
+        <h3 class="widget-title">Number Of Bets</h3>
+        <div class="widget">
+          <h2>18</h2>
+        </div>
+      </div>
+
+      <div class="widget-container half">
+        <h3 class="widget-title">Lost By One</h3>
+        <div class="widget">
+          <h2>3</h2>
+        </div>
+      </div>
     </div>
   </div>
 </div>

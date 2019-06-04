@@ -182,3 +182,32 @@
     }
   }
 }
+
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0 -10px;
+  @media(max-width: $mobile) {
+    flex-direction: column;
+  }
+}
+
+.dashboard-half {
+  width: 50%;
+  @media(max-width: $mobile) {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+.mobile-widget-scroller  {
+  @media(max-width: $mobile) {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    .widget-container {
+      min-width: 180px; min-height: 180px;
+    }
+  }
+}
