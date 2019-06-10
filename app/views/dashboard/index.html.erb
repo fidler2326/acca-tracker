@@ -70,21 +70,21 @@
       <div class="widget-container half">
         <h3 class="widget-title">Profit / Loss</h3>
         <div class="widget">
-          <h2>+£78.62</h2>
+          <h2><%= number_to_currency(profit_loss(Date.today - 7.days), unit: "£") %></h2>
         </div>
       </div>
 
       <div class="widget-container half">
         <h3 class="widget-title">Total Staked</h3>
         <div class="widget">
-          <h2>£48</h2>
+          <h2><%= number_to_currency(total_staked(Date.today - 7.days), unit: "£") %></h2>
         </div>
       </div>
 
       <div class="widget-container half">
         <h3 class="widget-title">Number Of Bets</h3>
         <div class="widget">
-          <h2>18</h2>
+          <h2><%= total_bets(Date.today - 7.days) %></h2>
         </div>
       </div>
 
