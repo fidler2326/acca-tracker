@@ -211,3 +211,28 @@
     }
   }
 }
+
+.date-heading {
+  display: inline-block;
+  margin: 5px 0 10px 0; padding: 5px 10px;
+  background-color: #fff;
+  border: 1px solid $border_color;
+  border-radius: $border_radius;
+  font-size: 16px;
+  position: relative;
+  &:after {
+    content: "";
+    width: 9999px; height: 1px;
+    background-color: $border_color;
+    position: absolute;
+    top: 50%; right: -9999px;
+    z-index: -1;
+    transform: translate(0,-50%);
+  }
+  span {
+    border-left: 3px solid $primary;
+    padding: 0 0 0 3px;
+  }
+}
+
+.page-title + .date-heading { margin-top: 0; }

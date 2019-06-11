@@ -20,6 +20,6 @@ module DashboardHelper
   end
 
   def lost_by_one
-    Acca.where("date >= ?", date).legs.map(&:lost)
+    # Acca.where("date >= ?", date).legs.map {|leg| }
   end
 end
