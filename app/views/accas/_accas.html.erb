@@ -2,7 +2,8 @@
   <%= paginate @accas %>
   <% @accas.each do |date,accas| %>
     <div class="date-heading">
-      <span><%= "#{date.strftime('%A')} (#{date.strftime("%d/%m/%Y")}) #{pluralize(accas.count, 'Bet')}" %></span>
+      <h2><%= "#{date.strftime('%A')} (#{date.strftime("%d/%m/%Y")})" %></h2>
+      <p class="muted"><%= "#{pluralize(accas.count, 'Bet')} | Total Staked: #{number_to_currency(accas.map(&:stake).sum, unit: '£')} | Total Return: #{number_to_currency(accas.map(&:return).sum, unit: '£')}" %></p>
     </div>
     <% accas.each do |acca| %>
       <div class="card">
