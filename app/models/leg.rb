@@ -8,6 +8,7 @@ class Leg < ActiveRecord::Base
     DOUBLE_CHANCE = "Double Chance"
     DRAW_NO_BET   = "Draw No Bet"
     BTTS          = "Both Teams To Score"
+    WIN_AND_BTTS  = "Win And Both Teams To Score"
     BTTS_NO_DRAW  = "Both Score No Draw"
     OVER_0_GOALS  = "Over 0.5 Goals"
     OVER_1_GOALS  = "Over 1.5 Goals"
