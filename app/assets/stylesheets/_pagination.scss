@@ -1,0 +1,26 @@
+.pagination {
+  display: flex;
+  width: 100%; max-width: 500px;
+  margin: 10px 0;
+  border: 1px solid $border_color;
+  border-radius: $border_radius;
+  overflow: hidden;
+  span {
+    display: inline-block;
+    width: 100%;
+    border-left: 1px solid $border_color;
+    &:first-child { border: 0; }
+    &.current, a {
+      display: block;
+      padding: 10px;
+      background-color: #fff;
+      border-left: 0;
+      text-align: center;
+      text-decoration: none;
+    }
+    &.current {
+      background-color: $primary;
+      color: #fff;
+    }
+  }
+}

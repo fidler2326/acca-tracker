@@ -4,7 +4,8 @@ class AccasController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @accas = current_user.accas.order("date DESC")
+    accas = current_user.accas.order("date DESC").group_by{|a| a.date}
+    @accas = Kaminari.paginate_array(accas, total_count: accas.count).page(params[:page]).per(7)
   end
 
   def new

@@ -1,5 +1,6 @@
 <% unless @accas.empty? %>
-  <% @accas.group_by{|a| a.date}.each do |date,accas| %>
+  <%= paginate @accas %>
+  <% @accas.each do |date,accas| %>
     <div class="date-heading">
       <span><%= "#{date.strftime('%A')} (#{date.strftime("%d/%m/%Y")}) #{pluralize(accas.count, 'Bet')}" %></span>
     </div>
@@ -34,6 +35,7 @@
       </div>
     <% end %>
   <% end %>
+  <%= paginate @accas %>
 <% else %>
   <div class="alert alert-info">No Accas</div>
 <% end %>

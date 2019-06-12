@@ -74,3 +74,6 @@ gem 'select2-rails'
 
 # Multi Select
 gem 'bootstrap-multiselect-rails'
+
+# Pagination
+gem 'kaminari'
