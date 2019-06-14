@@ -236,3 +236,18 @@
     font-size: 12px;
   }
 }
+
+.chev {
+  display: inline-block;
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  position: relative;
+  top: -1px;
+  &.profit {
+    border-bottom: 5px solid $success;
+  }
+  &.loss {
+    border-top: 5px solid $danger;
+  }
+}
