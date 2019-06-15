@@ -244,10 +244,12 @@
   border-right: 5px solid transparent;
   position: relative;
   top: -1px;
-  &.profit {
-    border-bottom: 5px solid $success;
-  }
-  &.loss {
-    border-top: 5px solid $danger;
+  &.profit { border-bottom: 5px solid $success; }
+  &.loss { border-top: 5px solid $danger; }
+  &.large {
+    border-left-width: 10px;
+    border-right-width: 10px;
+    &.profit { border-bottom-width: 10px; }
+    &.loss { border-top-width: 10px; }
   }
 }

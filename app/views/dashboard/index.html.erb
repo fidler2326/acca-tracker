@@ -71,6 +71,7 @@
         <h3 class="widget-title">Profit / Loss</h3>
         <div class="widget">
           <h2><%= number_to_currency(profit_loss(Date.today - 7.days), unit: "£") %></h2>
+          <span class="chev large mar-left-5 <%= profit_loss(Date.today - 7.days) > 0 ? 'profit' : 'loss' %>"></span>
         </div>
       </div>
 
