@@ -1,5 +1,5 @@
 <% unless @accas.empty? %>
-  <%= paginate @accas %>
+  <%= paginate @accas, window: 0 %>
   <% @accas.each do |date,accas| %>
     <div class="date-heading">
       <h2><%= "#{date.strftime('%A')} (#{date.strftime("%d/%m/%Y")})" %></h2>
@@ -39,7 +39,7 @@
       </div>
     <% end %>
   <% end %>
-  <%= paginate @accas %>
+  <%= paginate @accas, window: 0 %>
 <% else %>
   <div class="alert alert-info">No Accas</div>
 <% end %>

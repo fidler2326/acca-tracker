@@ -6,9 +6,10 @@
   border-radius: $border_radius;
   overflow: hidden;
   span {
-    display: inline-block;
+    display: block;
     width: 100%;
     border-left: 1px solid $border_color;
+    background-color: #fff;
     &:first-child { border: 0; }
     &.current, a {
       display: block;
@@ -21,6 +22,10 @@
     &.current {
       background-color: $primary;
       color: #fff;
+    }
+    &.gap {
+      background-color: #fff;
+      text-align: center;
     }
   }
 }
