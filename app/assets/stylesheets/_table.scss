@@ -39,3 +39,19 @@ table.outlined {
     }
   }
 }
+
+table.dashboard {
+  width: 100%;
+  border-collapse: collapse;
+  tr {
+    td {
+      text-align: left;
+      padding: 20px 10px;
+      border: 1px solid $border_color;
+      background-color: #fff;
+    }
+    &:nth-child(odd) td {
+      background-color: #f9f9f9;
+    }
+  }
+}

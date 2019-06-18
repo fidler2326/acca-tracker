@@ -50,6 +50,13 @@
     }
 } %>
 <div class="page-title">
+  <div class="form-group no-stretch pull-right">
+    <select>
+      <option>Last 7 Days</option>
+      <option>Last 30 Days</option>
+      <option>This Season</option>
+    </select>
+  </div>
   <h1>Dashboard</h1>
 </div>
 
@@ -95,6 +102,57 @@
           <h2>3</h2>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="line-divide"></div>
+
+<div class="dashboard-container">
+  <div class="dashboard-half">
+    <div class="flex-row flex-wrap flex-grow height-100 mobile-widget-scroller">
+      <div class="widget-container half">
+        <h3 class="widget-title">Biggest Win</h3>
+        <div class="widget">
+          <h2><%= number_to_currency(biggest_win, unit: "£") %></h2>
+        </div>
+      </div>
+      <div class="widget-container half">
+        <h3 class="widget-title">Biggest Loss</h3>
+        <div class="widget">
+          <h2><%= number_to_currency(biggest_loss, unit: "£") %></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-half">
+    <div class="flex-row" style="padding:5px 5px 6px 5px;">
+      <table class="dashboard">
+        <tr>
+          <td>Average Stake</td>
+          <td><%= number_to_currency(average_stake, unit: "£") %></td>
+        </tr>
+        <tr>
+          <td>Average Return</td>
+          <td><%= number_to_currency(average_return, unit: "£") %></td>
+        </tr>
+        <tr>
+          <td>Largest Stake</td>
+          <td><%= number_to_currency(largest_stake, unit: "£") %></td>
+        </tr>
+        <tr>
+          <td>Smallest Stake</td>
+          <td><%= number_to_currency(smallest_stake, unit: "£") %></td>
+        </tr>
+        <tr>
+          <td>Longest Winning Run</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Longest Losing Run</td>
+          <td>0</td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>

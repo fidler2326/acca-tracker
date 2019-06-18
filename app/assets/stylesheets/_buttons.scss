@@ -7,6 +7,10 @@
   font-size: 14px;
   font-weight: 500;
   transition: 0.3s ease;
+  &.btn-full {
+    width: 100%;
+    text-align: center;
+  }
   &.btn-primary {
     background-color: $primary;
     border: 1px solid $primary;
