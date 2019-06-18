@@ -5,7 +5,6 @@ class V1::SessionsController < ApplicationController
   def create
     user = User.where(email: params[:email]).first
     if user && user.valid_password?(params[:password])
-      p "HERE456"
       render json: user.as_json(only: [:email, :authentication_token]), status: :created
     else
       render json: { errors: "Email or password wrong." }, status: 422

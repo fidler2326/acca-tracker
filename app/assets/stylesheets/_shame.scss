@@ -253,3 +253,15 @@
     &.loss { border-top-width: 10px; }
   }
 }
+
+.session-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; max-width: 400px;
+  margin: 0 auto; padding: 10px;
+  background-color: #fff;
+  border-radius: $border_radius;
+  form { width: 100%; }
+}

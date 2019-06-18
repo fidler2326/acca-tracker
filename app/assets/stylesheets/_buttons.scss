@@ -6,6 +6,7 @@
   color: #fff;
   font-size: 14px;
   font-weight: 500;
+  cursor: pointer;
   transition: 0.3s ease;
   &.btn-full {
     width: 100%;
@@ -16,6 +17,15 @@
     border: 1px solid $primary;
     &:hover {
       background-color: lighten($primary,5%);
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  &.btn-action {
+    background-color: $warning;
+    border: 1px solid $warning;
+    &:hover {
+      background-color: lighten($warning,5%);
       color: #fff;
       text-decoration: none;
     }

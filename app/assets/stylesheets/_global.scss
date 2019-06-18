@@ -26,6 +26,15 @@ body {
   font-family: $font_family;
   font-weight: 500;
   font-size: 14px;
+  &.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; height: 100vh;
+    background: $primary_gradient;
+    .container { width: 100%; }
+  }
   &.extra-padding {
     padding: 0 0 55px 0;
   }
@@ -187,6 +196,10 @@ nav.main-menu {
   margin: 20px 0;
   border-top: 1px solid $primary;
   border-bottom: 1px solid $primary;
+  &.white {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+  }
 }
 
 .flex-row {

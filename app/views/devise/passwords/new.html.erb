@@ -1,0 +1,15 @@
+<% @body_class = "login" %>
+<div class="session-container">
+  <h2 class="mar-bottom-20">Forgot Password</h2>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="form-group full">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+    </div>
+
+    <%= f.submit "Send", class: "btn btn-primary btn-full" %>
+  <% end %>
+  <div class="line-divide"></div>
+  <%= render "devise/shared/links" %>
+</div>

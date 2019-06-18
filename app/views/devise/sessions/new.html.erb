@@ -1,0 +1,20 @@
+<% @body_class = "login" %>
+
+<div class="session-container">
+  <h2 class="mar-bottom-20">Login</h2>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-group full">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+    </div>
+
+    <div class="form-group full">
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Login", class: "btn btn-primary btn-full" %>
+    </div>
+  <% end %>
+  <div class="line-divide"></div>
+  <%= render "devise/shared/links" %>
+</div>
