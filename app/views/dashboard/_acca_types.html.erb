@@ -1,0 +1,18 @@
+<%
+  data = {
+    labels: acca_type(Date.today - 30.days).map{|k,v| k},
+    datasets: [{
+      data: acca_type(Date.today - 30.days).map{|k,v| v},
+      backgroundColor: ['#D95058','#0367A6','#04BFBF','#F29F05','#C041FF'],
+    }],
+  }
+%>
+
+<%
+  options = {
+    responsive: true,
+    maintainAspectRatio: false,
+  }
+%>
+
+<%= pie_chart data, options %>

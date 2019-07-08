@@ -148,3 +148,81 @@
     </div>
   </div>
 </div>
+
+<div class="line-divide"></div>
+
+<div class="dashboard-container">
+  <div class="dashboard-third">
+    <div class="flex-row" style="padding:5px 5px 6px 5px;">
+      <table class="table">
+        <tr>
+          <th>Most Back Teams</th>
+          <th class="text-right">Number Of Bets</th>
+        </tr>
+        <% most_backed_teams.each do |selection| %>
+          <tr>
+            <td><%= Selection.find(selection[0]).name %></td>
+            <td class="text-right"><%= selection[1] %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <div class="dashboard-third">
+    <div class="flex-row" style="padding:5px 5px 6px 5px;">
+      <table class="table">
+        <tr>
+          <th>Biggest Winners</th>
+          <th class="text-right">Number Of Bets</th>
+        </tr>
+        <% most_winning_teams.each do |selection| %>
+          <tr>
+            <td><%= Selection.find(selection[0]).name %></td>
+            <td class="text-right"><%= selection[1] %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <div class="dashboard-third">
+    <div class="flex-row" style="padding:5px 5px 6px 5px;">
+      <table class="table">
+        <tr>
+          <th>Biggest Losers</th>
+          <th class="text-right">Number Of Bets</th>
+        </tr>
+        <% most_losing_teams.each do |selection| %>
+          <tr>
+            <td><%= Selection.find(selection[0]).name %></td>
+            <td class="text-right"><%= selection[1] %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="line-divide"></div>
+
+<div class="dashboard-container">
+  <div class="dashboard-half">
+    <div class="flex-row">
+      <div class="widget-container full">
+        <h3 class="widget-title">Acca Types</h3>
+        <div class="widget large">
+          <%= render "acca_types" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-half">
+    <div class="flex-row">
+      <div class="widget-container full">
+        <h3 class="widget-title">Bet Types</h3>
+        <div class="widget large">
+          <%= render "leg_types" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

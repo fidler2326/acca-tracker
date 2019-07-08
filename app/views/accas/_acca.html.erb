@@ -22,7 +22,7 @@
         <% if @acca.category == Acca::Category::FOOTBALL %>
           <p class="muted"><%= Selection.find(leg.selection).name %> vs <%= Selection.find(leg.opponent).name %></p>
         <% else %>
-          <p class="muted"><%= leg.course %>: <%= leg.race_time.strftime("%H:%M") %></p>
+          <p class="muted"><%= leg.course %>: <%= leg.race_time.strftime("%H:%M") rescue nil %></p>
         <% end %>
       </div>
       <div class="selection-card-footer">

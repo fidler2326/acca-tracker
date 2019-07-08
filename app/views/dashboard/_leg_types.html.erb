@@ -1,0 +1,18 @@
+<%
+  data = {
+    labels: bet_type(Date.today - 30.days).map{|k,v| k},
+    datasets: [{
+      data: bet_type(Date.today - 30.days).map{|k,v| v},
+      backgroundColor: ['#F2B705','#0B1F8C','#F26513','#AC0D2B','#049DD9'],
+    }],
+  }
+%>
+
+<%
+  options = {
+    responsive: true,
+    maintainAspectRatio: false,
+  }
+%>
+
+<%= pie_chart data, options %>

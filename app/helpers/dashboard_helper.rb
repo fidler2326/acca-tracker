@@ -52,4 +52,29 @@ module DashboardHelper
     biggest_win = Acca.where(date: Date.today - 7.days..Date.today, return: 0).map{|acca| acca.stake.to_f}.max
     return biggest_win
   end
+
+  def most_backed_teams
+    teams = Acca.where(category: Acca::Category::FOOTBALL).map{|a| a.legs}.flatten.group_by(&:selection).map{|k,v| [k, v.length]}.sort_by{|k, v| v}.reverse.take(10) rescue []
+    return teams
+  end
+
+  def most_winning_teams
+    teams = Acca.where(category: Acca::Category::FOOTBALL).map{|a| a.legs.where(won: true)}.flatten.group_by(&:selection).map{|k,v| [k, v.length]}.sort_by{|k, v| v}.reverse.take(10) rescue []
+    return teams
+  end
+
+  def most_losing_teams
+    teams = Acca.where(category: Acca::Category::FOOTBALL).map{|a| a.legs.where(lost: true)}.flatten.group_by(&:selection).map{|k,v| [k, v.length]}.sort_by{|k, v| v}.reverse.take(10) rescue []
+    return teams
+  end
+
+  def acca_type date
+    acca_type = Acca.where(date: date..Date.today).group_by(&:bet_type).map{|k,v| [k, v.length]}.sort_by{|k, v| v}.reverse.take(5) rescue []
+    return acca_type
+  end
+
+  def bet_type date
+    bet_type = Acca.where(date: date..Date.today).map{|a| a.legs}.flatten.group_by(&:leg_type).map{|k,v| [k, v.length]}.sort_by{|k, v| v}.reverse.take(5) rescue []
+    return bet_type
+  end
 end

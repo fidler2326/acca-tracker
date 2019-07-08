@@ -200,6 +200,14 @@
   }
 }
 
+.dashboard-third {
+  width: 33.33%;
+  @media(max-width: $mobile) {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
 .mobile-widget-scroller  {
   @media(max-width: $mobile) {
     display: flex;
