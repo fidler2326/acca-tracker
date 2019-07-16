@@ -12,8 +12,13 @@
       <div class="form-group multi relative">
         <%= f.select :bet_type, options_for_select(Acca::BET_TYPES), prompt: "Select Bet Type" %>
       </div>
+      <div class="form-group">
+        <%= f.text_field :stake, placeholder: "£ Stake" %>
+      </div>
+      <div class="form-group">
+        <%= f.text_field :return, placeholder: "£ Return" %>
+      </div>
     </div>
-
 
     <div class="line-divide"></div>
 
@@ -25,22 +30,13 @@
       <% end %>
     </div>
 
+    <%= link_to_add_association 'Add Selection', f, :legs, class: "open-modal add-leg", 'data-association-insertion-node' => '#legs' %>
+
     <div class="form-actions">
-      <div class="form-group-inline">
-        <div class="form-group">
-          <%= f.text_field :stake, placeholder: "£ Stake" %>
-        </div>
-        <div class="form-group">
-          <%= f.text_field :return, placeholder: "£ Return" %>
-        </div>
-      </div>
       <%= f.submit "Save Acca", class: "btn btn-primary" %>
     </div>
   </div>
 
-  <div class="floating-footer">
-    <%= link_to_add_association 'Add Selection', f, :legs, class: "open-modal add-leg btn btn-primary btn-full", 'data-association-insertion-node' => '#legs' %>
-  </div>
 <% end %>
 
 <%= render "leg_popup" %>
@@ -61,6 +57,35 @@
           $leg.find(".field_"+field["name"]).val(field["value"]);
         }
       });
+    });
+
+    $("body").on("click",".add-another",function(event) {
+      event.preventDefault();
+      // Add another leg by clicking the add leg button
+      $(".add-leg").click();
+      // TODO: Make this a function
+      form_data = $(".popup-form").serializeArray();
+      $leg = $(".nested-fields").last().prev(".nested-fields");
+      $(form_data).each(function(i,field) {
+        if ($leg.find(".field_"+field["name"]).is(":checkbox")) {
+          $leg.find(".field_"+field["name"]).parent().parent().find("input").prop("checked",false);
+          $leg.find(".field_"+field["name"]).prop("checked",true);
+        } else {
+          $leg.find(".field_"+field["name"]).val(field["value"]);
+        }
+      });
+      // Clear fields
+      $(".clear-field").val("");
+      // Focus on selection input
+      $(".selection-field").focus();
+    });
+
+    $("body").on("click",".add-leg",function(event) {
+      event.preventDefault();
+      // Focus on selection input
+      setTimeout(function() {
+        $(".selection-field").focus();
+      },500);
     });
 
     // Multiselect setup
