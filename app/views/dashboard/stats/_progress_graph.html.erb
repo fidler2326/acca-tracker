@@ -1,0 +1,53 @@
+<% data = {
+  labels: profit_loss_by_date(@accas).map{|k,v| [k.to_s]}.flatten,
+  datasets: [
+    {
+      label: "Profit/Loss",
+      backgroundColor: "rgba(61, 194, 139,1)",
+      borderColor: "rgba(61, 194, 139,1)",
+      data: profit_loss_by_date(@accas).map{|k,v| [v.to_s]}.flatten,
+      fill: false
+    }
+  ]
+} %>
+<% options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      display: false,
+      labels: {
+        fontColor: "#fff",
+        fontSize: 14
+      }
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          fontColor: "#fff",
+          fontSize: 12,
+          beginAtZero: true
+        },
+        gridLines: {
+          color: "rgba(255,255,255,0.1)",
+          zeroLineColor:"rgba(255,255,255,0.5)"
+        }
+      }],
+      xAxes: [{
+        borderColor: "red",
+        ticks: {
+          fontColor: "#fff",
+          fontSize: 12,
+          beginAtZero: true
+        },
+        gridLines: {
+          color: "rgba(255,255,255,0.1)",
+          zeroLineColor:"rgba(255,255,255,0.5)"
+        }
+      }]
+    }
+} %>
+
+<div class="graph-container">
+  <h2>Profit / Loss Progress</h2>
+  <%= line_chart data, options %>
+</div>

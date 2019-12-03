@@ -10,12 +10,7 @@ class Leg < ActiveRecord::Base
     BTTS          = "Both Teams To Score"
     WIN_AND_BTTS  = "Win And Both Teams To Score"
     BTTS_NO_DRAW  = "Both Score No Draw"
-    OVER_0_GOALS  = "Over 0.5 Goals"
-    OVER_1_GOALS  = "Over 1.5 Goals"
-    OVER_2_GOALS  = "Over 2.5 Goals"
-    UNDER_0_GOALS = "Under 0.5 Goals"
-    UNDER_1_GOALS = "Under 1.5 Goals"
-    UNDER_2_GOALS = "Under 2.5 Goals"
+    TOTAL_GOALS   = "Total Goals (over/under)"
   end
   BET_TYPES = Type.constants.collect {|c| Type.const_get c }
 

@@ -1,0 +1,12 @@
+<table class="table">
+  <tr>
+    <th>Biggest Losers</th>
+    <th class="text-right">Number Of Bets</th>
+  </tr>
+  <% most_losing_teams(@accas).each do |selection| %>
+    <tr>
+      <td><%= link_to Selection.find(selection[0]).name, edit_selection_path(selection[0]) %></td>
+      <td class="text-right"><%= selection[1] %></td>
+    </tr>
+  <% end %>
+</table>

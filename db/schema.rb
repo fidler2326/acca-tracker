@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190603180220) do
+ActiveRecord::Schema.define(version: 20191128184229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20190603180220) do
   create_table "legs", force: :cascade do |t|
     t.string "leg_type"
     t.integer "selection"
-    t.integer "opponent"
     t.boolean "won"
     t.boolean "placed"
     t.boolean "lost"
@@ -35,11 +34,14 @@ ActiveRecord::Schema.define(version: 20190603180220) do
     t.integer "acca_id"
     t.string "course"
     t.time "race_time"
+    t.string "event"
+    t.string "odds"
   end
 
   create_table "selections", force: :cascade do |t|
     t.string "name"
     t.string "category"
+    t.boolean "hidden", default: false
   end
 
   create_table "users", force: :cascade do |t|

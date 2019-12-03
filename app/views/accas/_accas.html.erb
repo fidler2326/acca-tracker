@@ -4,7 +4,7 @@
     <div class="date-heading">
       <h2><%= "#{date.strftime('%A')} (#{date.strftime("%d/%m/%Y")})" %></h2>
       <div class="flex-row v-middle">
-        <p class="muted"><%= "#{pluralize(accas.count, 'Bet')} | Total Staked: #{number_to_currency(accas.map(&:stake).sum, unit: '£')} | Total Return: #{number_to_currency(accas.map(&:return).sum, unit: '£')}" %></p>
+        <p class="muted"><%= "#{pluralize(accas.count, 'Bet')} | Total Staked: #{number_to_currency(accas.map{|a| a.stake rescue 0}.sum, unit: '£')} | Total Return: #{number_to_currency(accas.map{|a| a.return rescue 0}.sum, unit: '£')}" %></p>
         <span class="chev mar-left-5 <%= accas.map(&:return).sum > 0 ? 'profit' : 'loss' %>"></span>
       </div>
     </div>

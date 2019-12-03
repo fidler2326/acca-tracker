@@ -31,6 +31,7 @@ a{
 
 // Flexbox
 // -------
+.full-page { display: flex; height: calc(100vh - 40px); }
 .flex{ display: flex; }
 // .flex-full { width: 100%; }
 .flex-row{ display: flex; flex-direction: row; }
@@ -41,6 +42,8 @@ a{
 .flex-full{ display: flex; width: 100%; }
 .flex-grow{ flex-grow: 1; }
 .flex-wrap{ flex-wrap: wrap; }
+.width-100 { width: 100%; }
+.width-50 { width: 50%; }
 
 // Margins and padding
 // -------------------
@@ -120,6 +123,7 @@ a{
   background-color: $primary;
   border-radius: 3px;
   color: #fff;
+  text-transform: uppercase;
   // Sizes
   &.large{
     padding: 6px;
@@ -131,11 +135,14 @@ a{
     font-size: 16px;
   }
   // Colours
-  &.profit {
+  &.profit,&.won {
     background-color: $success;
   }
-  &.loss {
+  &.loss,&.lost {
     background-color: $danger;
+  }
+  &.void {
+    background-color: $border_color;
   }
 }
 

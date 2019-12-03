@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :accas do
     collection do
       get :get_acca
+      get :import
+      post :import_acca
     end
   end
 

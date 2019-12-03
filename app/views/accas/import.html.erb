@@ -1,0 +1,37 @@
+<div class="page-title">
+  <h1>Import Acca</h1>
+</div>
+
+<div class="flex-row">
+  <div class="width-50">
+    <div class="form-group html-input">
+      <textarea id="acca_html"></textarea>
+      <a href="#" class="btn btn-primary btn-full mar-top-10" id="import_acca">Import Acca</a>
+    </div>
+  </div>
+
+  <div class="width-50">
+    <div class="width-100" style="padding:0 0 0 10px;">
+      <div id="acca" class="width-100"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $("body").on("click","#import_acca",function(event) {
+      event.preventDefault();
+      var acca_html = $("#acca_html").val();
+      $.ajax({
+        url: "/accas/import_acca",
+        type: "POST",
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        data: { "acca_html": acca_html },
+        dataType: "script",
+        format: "js",
+      }).success(function() {
+        $("#acca_html").val("");
+      });
+    });
+  });
+</script>

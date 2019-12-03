@@ -14,17 +14,19 @@ table.table {
       }
     }
     th {
-      background-color: $primary;
-      border-color: $primary !important;
+      background-color: #1c1c1d;
+      border-color: #1c1c1d !important;
       color: #fff;
     }
     td {
-      background-color: #fff;
-      border-color: $border_color !important;
+      background-color: #343338;
+      border-color: #1c1c1d !important;
+      color: #fff;
       font-weight: 400;
+      a { color: #fff; }
     }
     &:nth-child(odd) td {
-      background-color: #f9f9f9;
+      background-color: lighten(#343338,5%);
     }
   }
 }

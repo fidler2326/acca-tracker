@@ -21,7 +21,7 @@ $mobile: 680px;
 html, body { overflow-x: hidden; }
 
 body {
-  background-color: #eee;
+  background-color: #28272c;
   color: $default;
   font-family: $font_family;
   font-weight: 500;
@@ -120,26 +120,15 @@ header {
 
 .page-title {
   display: block;
-  margin: -20px -20px 20px -20px; padding: 20px;
-  border-bottom: 1px dashed $border_color;
-  // border-bottom: 1px solid $border_color;
-  // background: repeating-linear-gradient(
-  //   45deg,
-  //   #f5f5f5,
-  //   #f5f5f5 10px,
-  //   #f9f9f9 10px,
-  //   #f9f9f9 20px
-  // );
+  margin: -10px -10px 20px -10px; padding: 20px 10px;
+  border-bottom: 1px dashed rgba(#fff,0.1);
   h1 {
-    color: $default;
+    color: #fff;
   }
 }
 
 .container {
-  padding: 20px;
-  @media (max-width: $mobile) {
-    padding: 15px;
-  }
+  padding: 10px;
 }
 
 .btn-float {
@@ -210,8 +199,8 @@ nav.main-menu {
   display: block;
   width: 100%; height: 5px;
   margin: 20px 0;
-  border-top: 1px solid $primary;
-  border-bottom: 1px solid $primary;
+  border-top: 1px solid rgba(#fff,0.1);
+  border-bottom: 1px solid rgba(#fff,0.1);
   &.white {
     border-top-color: #fff;
     border-bottom-color: #fff;
@@ -242,24 +231,25 @@ nav.main-menu {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%; height: 40px;
+    height: 30px;
     padding: 0 10px;
-    background: $primary_gradient;
-    border-radius: $border_radius $border_radius 0 0;
+    background: #1c1c1d;
+    border-radius: $border_radius;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
+    text-transform: uppercase;
+    position: absolute;
+    top: 2px; left: 2px;
   }
   .widget {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100% - 40px);
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid $border_color;
-    border-top: 0;
-    border-radius: 0 0 $border_radius $border_radius;
+    height: 200px;
+    padding: 15px 10px 10px 10px;
+    background-color: #343338;
+    border-radius: $border_radius;
     position: relative;
     &.large {
       height: 400px;
@@ -268,12 +258,36 @@ nav.main-menu {
       }
     }
     h2 {
+      color: #fff;
       font-size: 38px;
       font-weight: 500;
       @media(max-width: $mobile) {
         font-size: 32px;
       }
     }
+  }
+}
+
+.graph-container {
+  margin: 0 -20px; padding: 45px 20px 10px 20px;
+  background-color: rgba(#fff,0.1);
+  border-top: 1px solid #1c1c1d;
+  border-bottom: 1px solid #1c1c1d;
+  position: relative;
+  h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    padding: 0 10px;
+    background: #1c1c1d;
+    border-radius: $border_radius;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    position: absolute;
+    top: 5px; left: 20px;
   }
 }
 
@@ -298,4 +312,96 @@ nav.main-menu {
   background-color: #fff;
   border: 1px solid $border_color;
   margin-top: -1px;
+}
+
+.acca-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid $border_color;
+  border-radius: $border_radius;
+  .acca-card-header,.acca-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  .acca-card-header {
+    border-bottom: 1px solid $border_color;
+  }
+  .acca-card-footer {
+    border-top: 1px solid $border_color;
+  }
+  .legs {
+    list-style: none;
+    padding: 10px 5px;
+    li {
+      padding: 10px;
+      border-bottom: 1px solid $border_color;
+      &:last-child { border: 0; }
+    }
+  }
+}
+
+.acca-card {
+  background-color: #000;
+	border-radius: 5px;
+  .acca-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #000;
+    border-radius: 5px 5px 0 0;
+    h2 {
+      color: #fff;
+      font-size: 18px;
+    }
+    p {
+      color: #fff;
+      font-size: 12px;
+      opacity: 0.5;
+    }
+  }
+  .acca-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgba(#fff,0.05);
+    border-top: 1px solid rgba(#fff,0.1);
+    border-radius: 0 0 5px 5px;
+    h2 {
+      color: #fff;
+      font-size: 18px;
+      small {
+        font-size: 12px;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+ul.acca-legs {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-bottom: 1px dashed rgba(#fff,0.1);
+    &:last-child { border: 0; }
+    h2 {
+      color: #fff;
+      font-size: 18px;
+      small {
+        font-size: 12px;
+        opacity: 0.5;
+      }
+    }
+  }
 }

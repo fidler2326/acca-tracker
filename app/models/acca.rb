@@ -6,7 +6,7 @@ class Acca < ActiveRecord::Base
 
   module Category
     FOOTBALL     = "Football"
-    HORSE_RACING = "Horse Racing"
+    # HORSE_RACING = "Horse Racing"
   end
   CATEGORIES = Category.constants.collect {|c| Category.const_get c }
 

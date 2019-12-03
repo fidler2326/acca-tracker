@@ -14,13 +14,9 @@
   <div class="selection-card-container mar-top-5 <%= leg_class(leg) %>">
     <div class="selection-card">
       <div class="selection-card-body">
-        <% if [Leg::Type::WIN,Leg::Type::EW,Leg::Type::DOUBLE_CHANCE,Leg::Type::DRAW_NO_BET,].include?(leg.leg_type) %>
-          <h2><%= Selection.find(leg.selection).name %></h2>
-        <% else %>
-          <h2><%= leg.leg_type %></h2>
-        <% end %>
+        <h2><%= Selection.find(leg.selection).name %></h2>
         <% if @acca.category == Acca::Category::FOOTBALL %>
-          <p class="muted"><%= Selection.find(leg.selection).name %> vs <%= Selection.find(leg.opponent).name %></p>
+          <p class="muted"><%= leg.event %></p>
         <% else %>
           <p class="muted"><%= leg.course %>: <%= leg.race_time.strftime("%H:%M") rescue nil %></p>
         <% end %>

@@ -1,0 +1,34 @@
+<div class="acca-card">
+  <div class="acca-card-header">
+    <h2><%= @acca.bet_type %></h2>
+    <p><%= @acca.date %></p>
+  </div>
+  <ul class="acca-legs">
+    <% @acca.legs.each do |leg| %>
+      <li>
+        <div class="flex-row v-middle">
+          <span class="leg-result"></span>
+          <h2>
+            <%= Selection.find(leg.selection).name %>
+            <small class="muted"><%= leg.event %> | <%= leg.leg_type.titleize %></small>
+          </h2>
+        </div>
+        <p><%= leg.odds %></p>
+      </li>
+    <% end %>
+  </ul>
+  <div class="acca-card-footer">
+    <span>
+      <h2>
+        <small>Stake:</small>
+        <%= number_to_currency(@acca.stake, unit: "£") %>
+      </h2>
+    </span>
+    <span>
+      <h2>
+        <small>Return:</small>
+        <%= number_to_currency(@acca.return, unit: "£") %>
+      </h2>
+    </span>
+  </div>
+</div>

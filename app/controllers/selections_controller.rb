@@ -47,6 +47,6 @@ class SelectionsController < ApplicationController
 
   private
   def selection_params
-    params.require(:selection).permit(:name, :category)
+    params.require(:selection).permit(:name, :category, :hidden)
   end
 end

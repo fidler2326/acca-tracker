@@ -1,0 +1,7 @@
+<div class="widget-container width-100">
+  <div class="widget">
+    <h3 class="widget-title">Profit / Loss</h3>
+    <h2><%= number_to_currency(profit_loss(@accas), unit: "£") %></h2>
+    <span class="chev large mar-left-5 <%= profit_loss(@accas) > 0 ? 'profit' : 'loss' %>"></span>
+  </div>
+</div>

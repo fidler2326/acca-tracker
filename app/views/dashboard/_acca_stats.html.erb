@@ -1,0 +1,36 @@
+<div class="flex-row" style="margin: -5px;">
+  <%= render "dashboard/stats/no_bets" %>
+  <%# render "dashboard/stats/lost_by_one" %>
+  <%= render "dashboard/stats/biggest_win" %>
+  <%= render "dashboard/stats/biggest_loss" %>
+  <%= render "dashboard/stats/total_staked" %>
+  <%= render "dashboard/stats/profit_loss" %>
+</div>
+
+<div class="line-divide"></div>
+
+<div class="">
+  <%= render "dashboard/stats/progress_graph" %>
+</div>
+
+<div class="line-divide"></div>
+
+<div class="dashboard-container">
+  <div class="dashboard-third">
+    <div class="flex-row" style="padding:5px 5px 6px 5px;">
+      <%= render "dashboard/stats/most_backed_teams" %>
+    </div>
+  </div>
+  <div class="dashboard-third">
+    <div class="flex-row" style="padding:5px 5px 6px 5px;">
+      <%= render "dashboard/stats/best_teams" %>
+    </div>
+  </div>
+  <div class="dashboard-third">
+    <div class="flex-row" style="padding:5px 5px 6px 5px;">
+      <%= render "dashboard/stats/worst_teams" %>
+    </div>
+  </div>
+</div>
+
+<div class="line-divide"></div>

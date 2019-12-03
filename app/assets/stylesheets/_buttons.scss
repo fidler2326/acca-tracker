@@ -1,11 +1,12 @@
 .btn {
   display: inline-block;
-  padding: 10px;
+  padding: 9px 10px;
   outline: 0; border: 0;
   border-radius: $border_radius;
   color: #fff;
   font-size: 14px;
   font-weight: 500;
+  white-space: nowrap;
   cursor: pointer;
   transition: 0.3s ease;
   &.btn-full {
@@ -13,10 +14,8 @@
     text-align: center;
   }
   &.btn-primary {
-    background-color: $primary;
-    border: 1px solid $primary;
+    background: $primary_gradient;
     &:hover {
-      background-color: lighten($primary,5%);
       color: #fff;
       text-decoration: none;
     }

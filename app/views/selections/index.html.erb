@@ -1,13 +1,19 @@
+<div class="page-title">
+  <h1>Teams</h1>
+</div>
+
 <table class="table">
   <tr>
     <th>Name</th>
     <th>Category</th>
+    <th>Hidden</th>
     <th>&nbsp;</th>
   </tr>
   <% @selections.each do |selection| %>
     <tr>
       <td><%= selection.name %></td>
       <td><%= selection.category %></td>
+      <td><%= selection.hidden %></td>
       <td class="text-right">
         <%= link_to "<i class='fa fa-pencil' aria-hidden='true'></i> Edit".html_safe, edit_selection_path(selection) %> |
         <%= link_to "<i class='fa fa-trash-o' aria-hidden='true'></i> Delete".html_safe, selection_path(selection), method: :delete, class: "text-danger", data: { confirm: "Are you sure?" } %>

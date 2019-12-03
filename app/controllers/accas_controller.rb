@@ -1,3 +1,5 @@
+require 'nokogiri'
+
 class AccasController < ApplicationController
   include AccasHelper
 
@@ -10,6 +12,66 @@ class AccasController < ApplicationController
 
   def new
     @acca = Acca.new
+  end
+
+  def import
+
+  end
+
+  def import_acca
+    html = Nokogiri::HTML(params[:acca_html])
+
+    acca_date   = Date.parse(html.css('.bet-confirmation-header-datetime').text.downcase.strip)
+    acca_type   = get_bet_type(html.css('.bet-confirmation-breakdown-link').text.downcase.gsub('bet type:', '').strip)
+    acca_stake  = html.css('.bet-confirmation-info-table-value').first.text.downcase.gsub('£','').strip
+    acca_return = html.css('.bet-confirmation-info-table-footer-value').text.downcase.gsub('to return £','').gsub('return £','').gsub('net return £','').strip
+
+    p acca_date
+    p acca_type
+    p acca_stake
+    p acca_return
+
+    Acca.create!(
+      date: acca_date,
+      category: Acca::Category::FOOTBALL,
+      bet_type: acca_type,
+      stake: acca_stake.to_f,
+      return: acca_return.to_f,
+      user_id: current_user.id
+    )
+
+    legs = html.css('.bet-confirmation-details-item')
+    legs.each do |leg|
+      selection  = get_selection(leg.css('.bet-confirmation-details-row-selectionname').text.gsub('Draw Or ','').gsub('Or Draw','').strip)
+      odds       = leg.css('.bet-confirmation-details-row-odds').text.downcase.strip
+      event      = leg.css('.bet-confirmation-details-row-eventname').text.gsub(/\d+/,'').gsub('/','').strip
+      leg_type   = get_leg_type(leg.css('.bet-confirmation-details-row-plbtdescription').text.downcase.strip)
+      leg_result = leg.css('.bet-confirmation-details-row-status').text.downcase.strip
+
+      p selection
+      p odds
+      p event
+      p leg_type
+      p leg_result
+
+      Leg.create!(
+        acca_id:   Acca.last.id,
+        leg_type:  leg_type,
+        selection: selection,
+        event:     event,
+        won:       leg_result == 'won',
+        placed:    nil,
+        lost:      leg_result == 'lost',
+        void:      leg_result == 'void',
+        course:    nil,
+        race_time: nil,
+        odds: odds
+      )
+
+
+      # Horse.create!(race_id: Race.last.id, meeting_id: Meeting.last.id, number: number, name: name, form: form, trainer: trainer, jockey: jockey)
+    end
+    @acca = Acca.last
   end
 
   def create
@@ -78,6 +140,6 @@ class AccasController < ApplicationController
 
   private
   def acca_params
-    params.require(:acca).permit(:date, :category, :bet_type, :stake, :return, legs_attributes: [:id, :leg_type, :selection, :opponent, :won, :placed, :lost, :void, :_destroy])
+    params.require(:acca).permit(:date, :category, :bet_type, :stake, :return, legs_attributes: [:id, :leg_type, :selection, :event, :won, :placed, :lost, :void, :odds, :_destroy])
   end
 end
