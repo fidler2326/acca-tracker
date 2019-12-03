@@ -22,8 +22,10 @@ module AccasHelper
 
   def get_leg_type leg_type
     case leg_type
-      when "full time result"
+      when "full time result", "fulltime result"
         return Leg::Type::WIN
+      when "draw"
+        return Leg::Type::DRAW
       when "double chance"
         return Leg::Type::DOUBLE_CHANCE
       when "draw no bet"
@@ -34,6 +36,8 @@ module AccasHelper
         return Leg::Type::TOTAL_GOALS
       when "result/both teams to score"
         return Leg::Type::WIN_AND_BTTS
+      when "to qualify"
+        return Leg::Type::TO_QUALIFY
     else
       return leg_type
     end

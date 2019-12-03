@@ -2,7 +2,7 @@ class Leg < ActiveRecord::Base
   belongs_to :acca
 
   module Type
-    WIN           = "Win"
+    WIN           = "Full Time Result"
     EW            = "E/W"
     DRAW          = "Draw"
     DOUBLE_CHANCE = "Double Chance"
@@ -11,6 +11,7 @@ class Leg < ActiveRecord::Base
     WIN_AND_BTTS  = "Win And Both Teams To Score"
     BTTS_NO_DRAW  = "Both Score No Draw"
     TOTAL_GOALS   = "Total Goals (over/under)"
+    TO_QUALIFY    = "To Qualify"
   end
   BET_TYPES = Type.constants.collect {|c| Type.const_get c }
 
