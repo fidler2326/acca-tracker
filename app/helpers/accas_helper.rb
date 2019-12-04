@@ -34,6 +34,8 @@ module AccasHelper
         return Leg::Type::BTTS
       when "alternative total goals", "total goals"
         return Leg::Type::TOTAL_GOALS
+      when "alternative corners"
+        return Leg::Type::TOTAL_CORNERS
       when "result/both teams to score"
         return Leg::Type::WIN_AND_BTTS
       when "to qualify"
