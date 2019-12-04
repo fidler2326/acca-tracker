@@ -109,6 +109,7 @@ class AccasController < ApplicationController
   end
 
   def update
+    @acca = Acca.find(params[:id])
     respond_to do |format|
       if @acca.update(acca_params)
         format.html { redirect_to @acca, notice: 'Acca was successfully updated.' }

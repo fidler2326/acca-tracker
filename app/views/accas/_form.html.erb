@@ -4,7 +4,7 @@
   <div class="acca-form-container">
     <div class="form-group-inline">
       <div class="form-group relative">
-        <%= f.text_field :date %>
+        <%= f.text_field :date, value: @acca.date || Date.today %>
       </div>
       <div class="form-group">
         <%= f.select :category, options_for_select(Acca::CATEGORIES), {}, {onchange: "checkCategory()"} %>
@@ -13,10 +13,10 @@
         <%= f.select :bet_type, options_for_select(Acca::BET_TYPES), prompt: "Select Bet Type" %>
       </div>
       <div class="form-group">
-        <%= f.text_field :stake, placeholder: "£ Stake", value: 5 %>
+        <%= f.text_field :stake, placeholder: "£ Stake", value: @acca.stake || 5 %>
       </div>
       <div class="form-group">
-        <%= f.text_field :return, placeholder: "£ Return", value: 0 %>
+        <%= f.text_field :return, placeholder: "£ Return", value: @acca.return || 0 %>
       </div>
     </div>
 
@@ -43,6 +43,11 @@
 
 <script>
   $(document).on('turbolinks:load', function() {
+    $("#acca_date").datetimepicker({
+      defaultDate: moment(),
+      format: 'YYYY-MM-DD'
+    });
+
     // Fill in form fields after closing modal
     $("body").on("click",".save-leg",function(event) {
       event.preventDefault();
@@ -124,11 +129,6 @@
     }
   }
 
-  $("#acca_date").datetimepicker({
-    defaultDate: moment(),
-    format: 'DD-MM-YYYY'
-  });
-
   $("#legs").on("cocoon:after-insert", function(e, insertedItem) {
     var availableTags = <%= raw Selection.all.map(&:name) %>;
     $('.selections').on("focus", function(){
@@ -141,4 +141,5 @@
     // After insterting a new leg check the acca category and show/hide opponent field
     checkCategory();
   });
+
 </script>
