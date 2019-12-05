@@ -7,7 +7,7 @@
     <% @acca.legs.each do |leg| %>
       <li>
         <div class="flex-row v-middle">
-          <span class="leg-result"></span>
+          <span class="leg-result <%= leg_class(leg) %>"></span>
           <h2>
             <%= Selection.find(leg.selection).name %>
             <small class="muted"><%= leg.event %> | <%= leg.leg_type.titleize %></small>

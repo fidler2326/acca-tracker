@@ -10,25 +10,21 @@
 
 <div class="line-divide"></div>
 
-<% @acca.legs.each do |leg| %>
-  <div class="selection-card-container mar-top-5 <%= leg_class(leg) %>">
-    <div class="selection-card">
-      <div class="selection-card-body">
-        <h2><%= Selection.find(leg.selection).name %></h2>
-        <% if @acca.category == Acca::Category::FOOTBALL %>
-          <p class="muted"><%= leg.event %></p>
-        <% else %>
-          <p class="muted"><%= leg.course %>: <%= leg.race_time.strftime("%H:%M") rescue nil %></p>
-        <% end %>
+<ul class="acca-legs no-padding-top no-padding-bottom">
+  <% @acca.legs.each do |leg| %>
+    <li>
+      <div class="flex-row v-middle">
+        <span class="leg-result <%= leg_class(leg) %>"></span>
+        <h2>
+          <%= Selection.find(leg.selection).name %>
+          <small class="muted"><%= leg.event %> | <%= leg.leg_type.titleize %></small>
+        </h2>
       </div>
-      <div class="selection-card-footer">
-        <p class="muted">Leg Type:</p>
-        <p class="muted"><%= leg.leg_type %></p>
-      </div>
-    </div>
-  </div>
-<% end %>
+      <p><%= leg.odds %></p>
+    </li>
+  <% end %>
+</ul>
 
-<div class="divider"></div>
+<div class="line-divide"></div>
 
 <%= link_to "Delete This Acca", acca_path(@acca), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>

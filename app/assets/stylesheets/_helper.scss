@@ -43,7 +43,10 @@ a{
 .flex-grow{ flex-grow: 1; }
 .flex-wrap{ flex-wrap: wrap; }
 .width-100 { width: 100%; }
+.width-40 { width: 40%; }
 .width-50 { width: 50%; }
+.width-60 { width: 60%; }
+
 
 // Margins and padding
 // -------------------
@@ -72,6 +75,8 @@ a{
 .mar-right-20{ margin-right: 20px !important; }
 
 .no-padding{ padding: 0 !important; }
+.no-padding-top { padding-top: 0 !important; }
+.no-padding-bottom { padding-bottom: 0 !important; }
 .pad-right-10{ padding-right: 10px !important; }
 
 // Positions

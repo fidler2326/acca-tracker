@@ -2,6 +2,14 @@ module DashboardHelper
 
   HIDDEN_SELECTIONS = Selection.where(hidden:true).pluck(:id)
 
+  def win_rate accas
+    return {
+        total_bets: accas.count,
+        total_winners: accas.where("return > 0").count,
+        win_rate: (accas.where("return > 0").count * 100 / accas.count)
+      }
+  end
+
   def profit_loss_by_date accas
     return accas.group_by(&:date).map{|k,v| [k, (v.sum(&:return).to_f.round(2) - v.sum(&:stake).to_f.round(2))]}
   end
