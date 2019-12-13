@@ -10,8 +10,12 @@ module DashboardHelper
       }
   end
 
+  def lucky_days accas
+    accas.all.where("return > 0").map{|a| a.date.strftime("%A")}.inject(Hash.new(0)) {|h,i| h[i] += 1; h }
+  end
+
   def profit_loss_by_date accas
-    return accas.group_by(&:date).map{|k,v| [k, (v.sum(&:return).to_f.round(2) - v.sum(&:stake).to_f.round(2))]}
+    accas.group_by{|a| a.date.beginning_of_week}.sort.map{|k,v| [k, ((Acca.all.where("date < ?", k).sum(&:return).to_f.round(2) - Acca.all.where("date < ?", k).sum(&:stake).to_f.round(2)) + (v.sum(&:return).to_f.round(2) - v.sum(&:stake).to_f.round(2)))]}
   end
 
   def profit_loss accas
