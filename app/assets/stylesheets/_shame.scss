@@ -212,10 +212,12 @@
   @media(max-width: $mobile) {
     display: flex;
     flex-wrap: nowrap;
+    overflow-y: hidden;
     overflow-x: auto;
     white-space: nowrap;
     .widget-container {
-      min-width: 180px; min-height: 180px;
+      min-width: 200px; min-height: 200px;
+      .widget { min-width: 200px; min-height: 200px; }
     }
   }
 }
