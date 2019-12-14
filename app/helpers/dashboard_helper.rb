@@ -13,8 +13,8 @@ module DashboardHelper
   def selection_win_rate accas, selection
     return {
       total_bets: accas.includes(:legs).where("legs.selection = ?", selection).references(:legs).count,
-      total_winners: accas.includes(:legs).where("accas.return > 0 AND legs.selection = ?", selection).references(:legs).count,
-      win_rate: (accas.includes(:legs).where("accas.return > 0 AND legs.selection = ?", selection).references(:legs).count * 100 / accas.includes(:legs).where("legs.selection = ?", selection).references(:legs).count)
+      total_winners: accas.includes(:legs).where("legs.won = true AND legs.selection = ?", selection).references(:legs).count,
+      win_rate: (accas.includes(:legs).where("legs.won = true AND legs.selection = ?", selection).references(:legs).count * 100 / accas.includes(:legs).where("legs.selection = ?", selection).references(:legs).count)
     }
   end
 
