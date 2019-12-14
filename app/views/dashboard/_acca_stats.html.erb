@@ -1,11 +1,12 @@
 <div class="win-rate large mar-bottom-10">
-  <div class="bar" style="width: <%= win_rate(@accas)[:win_rate] %>%;">
+  <span>
     <strong>Win Rate:</strong>
-    <span>
-      <%= win_rate(@accas)[:total_winners] %>/<%= win_rate(@accas)[:total_bets] %>
-      <%= win_rate(@accas)[:win_rate] %>%
-    </span>
-  </div>
+  </span>
+  <span>
+    <%= win_rate(@accas)[:total_winners] %>/<%= win_rate(@accas)[:total_bets] %>
+    <%= win_rate(@accas)[:win_rate] %>%
+  </span>
+  <div class="bar" style="width: <%= win_rate(@accas)[:win_rate] %>%;"></div>
 </div>
 
 <div class="mobile-widget-scroller">

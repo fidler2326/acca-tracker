@@ -413,6 +413,14 @@ ul.acca-legs {
   border-radius: $border_radius;
   position: relative;
   overflow: hidden;
+  span {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    transform: translate(0,-50%);
+  }
+  span:nth-child(1) { left: 5px; }
+  span:nth-child(2) { left: initial; right: 5px; }
   &.large {
     width: 100%;
   }
@@ -423,7 +431,7 @@ ul.acca-legs {
     background-color: $success;
     position: absolute;
     top: 0; left: 0;
-    text-indent: 5px;
+    z-index: 1;
     white-space: nowrap;
   }
 }
