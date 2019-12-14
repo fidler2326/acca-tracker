@@ -22,7 +22,7 @@ html, body { overflow-x: hidden; }
 
 body {
   background-color: #28272c;
-  color: $default;
+  color: #fff;
   font-family: $font_family;
   font-weight: 500;
   font-size: 14px;
@@ -402,5 +402,28 @@ ul.acca-legs {
       &.won { background-color: #2dab8b; }
       &.lost { background-color: #d84762; }
     }
+  }
+}
+
+.win-rate {
+  width: 100px;
+  height: 30px;
+  background-color: rgba(#fff,0.1);
+  border: 1px solid rgba(#fff,0.2);
+  border-radius: $border_radius;
+  position: relative;
+  overflow: hidden;
+  &.large {
+    width: 100%;
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    width: 0; height: 28px;
+    background-color: $success;
+    position: absolute;
+    top: 0; left: 0;
+    text-indent: 5px;
+    white-space: nowrap;
   }
 }

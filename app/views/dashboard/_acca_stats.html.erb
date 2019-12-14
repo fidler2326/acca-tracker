@@ -1,3 +1,13 @@
+<div class="win-rate large mar-bottom-10">
+  <div class="bar" style="width: <%= win_rate(@accas)[:win_rate] %>%;">
+    <strong>Win Rate:</strong>
+    <span>
+      <%= win_rate(@accas)[:total_winners] %>/<%= win_rate(@accas)[:total_bets] %>
+      <%= win_rate(@accas)[:win_rate] %>%
+    </span>
+  </div>
+</div>
+
 <div class="mobile-widget-scroller">
   <div class="flex-row" style="margin: -5px;">
     <%= render "dashboard/stats/no_bets" %>

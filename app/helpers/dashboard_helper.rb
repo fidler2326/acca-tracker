@@ -10,6 +10,14 @@ module DashboardHelper
       }
   end
 
+  def selection_win_rate accas, selection
+    return {
+      total_bets: accas.includes(:legs).where("legs.selection = ?", selection).references(:legs).count,
+      total_winners: accas.includes(:legs).where("accas.return > 0 AND legs.selection = ?", selection).references(:legs).count,
+      win_rate: (accas.includes(:legs).where("accas.return > 0 AND legs.selection = ?", selection).references(:legs).count * 100 / accas.includes(:legs).where("legs.selection = ?", selection).references(:legs).count)
+    }
+  end
+
   def lucky_days accas
     accas.all.where("return > 0").map{|a| a.date.strftime("%A")}.inject(Hash.new(0)) {|h,i| h[i] += 1; h }
   end

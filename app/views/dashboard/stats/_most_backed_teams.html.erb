@@ -1,11 +1,20 @@
 <table class="table">
   <tr>
     <th>Most Back Teams</th>
+    <th>Win Rate</th>
     <th class="text-right">Number Of Bets</th>
   </tr>
   <% most_backed_teams(@accas).each do |selection| %>
     <tr>
       <td><%= link_to Selection.find(selection[0]).name, edit_selection_path(selection[0]) %></td>
+      <td>
+        <div class="win-rate">
+          <div class="bar" style="width: <%= selection_win_rate(@accas, selection[0])[:win_rate] %>%;">
+            <%= selection_win_rate(@accas, selection[0])[:total_winners] %>/<%= selection_win_rate(@accas, selection[0])[:total_bets] %>
+            <%= selection_win_rate(@accas, selection[0])[:win_rate] %>%
+          </div>
+        </div>
+      </td>
       <td class="text-right"><%= selection[1] %></td>
     </tr>
   <% end %>
