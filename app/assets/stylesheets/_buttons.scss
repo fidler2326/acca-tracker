@@ -46,7 +46,6 @@
 .checkbox-group {
   display: flex;
   max-width: 560px;
-  border: 1px solid $border_color;
   border-radius: $border_radius;
   label {
     width: 100%;
@@ -55,7 +54,6 @@
       width: 100%;
       display: inline-block;
       padding: 10px 15px;
-      border-right: 1px solid $border_color;
       text-align: center;
       cursor: pointer;
     }

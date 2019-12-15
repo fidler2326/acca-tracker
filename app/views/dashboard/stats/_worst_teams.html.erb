@@ -5,7 +5,7 @@
   </tr>
   <% most_losing_teams(@accas).each_with_index do |selection,i| %>
     <tr>
-      <td><%= i+1 %>. <%= link_to Selection.find(selection[0]).name, edit_selection_path(selection[0]) %></td>
+      <td class="upcase"><%= i+1 %>. <%= link_to Selection.find(selection[0]).name, edit_selection_path(selection[0]) %></td>
       <td>
         <div class="win-rate">
           <span>

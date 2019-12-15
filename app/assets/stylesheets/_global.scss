@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
 
+$background: #28272c;
 $primary: #6A39D9;
+$dark: #343338;
+$dark_alt: #1c1c1d;
 $success: #3DC28B;
 $danger: #DA4453;
 $warning: #F6BB42;
 $default: #333;
 $primary_gradient: linear-gradient(to right, $primary 0%, lighten($primary,8%) 100%);
-$border_color: #bbb;
 $border_radius: 3px;
 $font_family: Helvetica, sans-serif;
-
 $mobile: 680px;
 
 * {
@@ -21,7 +22,7 @@ $mobile: 680px;
 html, body { overflow-x: hidden; }
 
 body {
-  background-color: #28272c;
+  background-color: $background;
   color: #fff;
   font-family: $font_family;
   font-weight: 500;
@@ -131,26 +132,6 @@ header {
   padding: 10px;
 }
 
-.btn-float {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px; height: 40px;
-  background-color: $primary;
-  border-radius: 100%;
-  color: #fff;
-  font-weight: 300;
-  font-size: 38px;
-  text-decoration: none;
-  position: fixed;
-  bottom: 20px; right: 20px;
-  transform: rotate(0deg);
-  transition: 0.3s ease;
-  &.active {
-    transform: rotate(315deg);
-  }
-}
-
 nav.main-menu {
   position: fixed;
   bottom: 70px; right: 30px;
@@ -195,84 +176,11 @@ nav.main-menu {
   }
 }
 
-.line-divide {
-  display: block;
-  width: 100%; height: 5px;
-  margin: 20px 0;
-  border-top: 1px solid rgba(#fff,0.1);
-  border-bottom: 1px solid rgba(#fff,0.1);
-  &.white {
-    border-top-color: #fff;
-    border-bottom-color: #fff;
-  }
-}
-
-.flex-row {
-  display: flex;
-  flex-direction: row;
-}
-
-.widget-container {
-  display: inline-block;
-  padding: 5px;
-  &.full {
-    width: 100%;
-  }
-  &.half {
-    width: 50%;
-  }
-  &.third {
-    width: 33%;
-  }
-  &.quater {
-    width: 25%;
-  }
-  .widget-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 30px;
-    padding: 0 10px;
-    background: #1c1c1d;
-    border-radius: $border_radius;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 400;
-    text-transform: uppercase;
-    position: absolute;
-    top: 2px; left: 2px;
-  }
-  .widget {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 200px;
-    padding: 15px 10px 10px 10px;
-    background-color: #343338;
-    border-radius: $border_radius;
-    position: relative;
-    &.large {
-      height: 400px;
-      @media(max-width: $mobile) {
-        height: 350px;
-      }
-    }
-    h2 {
-      color: #fff;
-      font-size: 38px;
-      font-weight: 500;
-      @media(max-width: $mobile) {
-        font-size: 32px;
-      }
-    }
-  }
-}
-
 .graph-container {
   margin: 0 -20px; padding: 45px 20px 10px 20px;
   background-color: rgba(#fff,0.1);
-  border-top: 1px solid #1c1c1d;
-  border-bottom: 1px solid #1c1c1d;
+  border-top: 1px solid $dark_alt;
+  border-bottom: 1px solid $dark_alt;
   position: relative;
   h2 {
     display: flex;
@@ -280,7 +188,7 @@ nav.main-menu {
     justify-content: center;
     height: 30px;
     padding: 0 10px;
-    background: #1c1c1d;
+    background-color: $dark_alt;
     border-radius: $border_radius;
     color: #fff;
     font-size: 16px;
@@ -288,120 +196,6 @@ nav.main-menu {
     text-transform: uppercase;
     position: absolute;
     top: 5px; left: 20px;
-  }
-}
-
-.floating-footer {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 10px 20px;
-  background-color: #fff;
-  border-top: 1px solid $border_color;
-  position: fixed;
-  bottom: 0; left: 0;
-  z-index: 9;
-  @media (max-width: $mobile) {
-    padding: 10px;
-  }
-  .form-group { margin-right: 10px; }
-}
-
-.leg-row {
-  padding: 5px;
-  background-color: #fff;
-  border: 1px solid $border_color;
-  margin-top: -1px;
-}
-
-.acca-card {
-  background-color: #343338;
-	border-radius: 5px;
-  .acca-card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 10px;
-    background-color: #1c1c1d;
-    border-radius: 5px 5px 0 0;
-    h2 {
-      color: #fff;
-      font-size: 20px;
-      text-transform: uppercase;
-    }
-    p {
-      color: #fff;
-      font-size: 12px;
-      opacity: 0.5;
-    }
-  }
-  .acca-card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 10px;
-    background-color: rgba(#fff,0.05);
-    border-top: 1px solid rgba(#fff,0.1);
-    border-radius: 0 0 5px 5px;
-    span {
-      width: 100%;
-      &:first-of-type {
-        border-right: 1px solid rgba(#fff,0.1);
-      }
-      &:last-of-type {
-        text-align: right;
-      }
-    }
-    h2 {
-      color: #fff;
-      font-size: 18px;
-      text-transform: uppercase;
-      small {
-        display: block;
-        font-size: 12px;
-        font-weight: 400;
-        opacity: 0.5;
-      }
-    }
-  }
-}
-
-ul.acca-legs {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 5px;
-    border-bottom: 1px dashed rgba(#fff,0.1);
-    &:last-child { border: 0; }
-    h2 {
-      color: #fff;
-      font-size: 18px;
-      text-transform: uppercase;
-      small {
-        display: block;
-        font-size: 12px;
-        font-weight: 400;
-        opacity: 0.5;
-        text-transform: capitalize;
-      }
-    }
-    p {
-      color: #fff;
-      opacity: 0.5;
-    }
-    .leg-result {
-      width: 14px; height: 14px;
-      margin: 0 10px 0 0;
-      background-color: rgba(#fff,0.1);
-      border-radius: 100%;
-      &.won { background-color: #2dab8b; }
-      &.lost { background-color: #d84762; }
-    }
   }
 }
 

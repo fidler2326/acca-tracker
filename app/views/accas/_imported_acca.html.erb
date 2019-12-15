@@ -1,7 +1,10 @@
 <div class="acca-card">
   <div class="acca-card-header">
-    <h2><%= @acca.bet_type %></h2>
-    <p><%= @acca.date %></p>
+    <h2>
+      <small><%= @acca.date %></small>
+      <%= @acca.bet_type %>
+    </h2>
+    <%= link_to "<i class='fa fa-pencil' aria-hidden='true'></i> Edit".html_safe, edit_acca_path(@acca) %>
   </div>
   <ul class="acca-legs">
     <% @acca.legs.each do |leg| %>

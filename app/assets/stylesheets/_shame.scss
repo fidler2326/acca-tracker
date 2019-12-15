@@ -8,23 +8,8 @@
   width: 100%; max-width: 560px;
   padding: 5px;
   background-color: #fff;
-  border: 1px solid $border_color;
   border-radius: $border_radius;
 }
-
-// .leg-container {
-//   display: inline-block;
-//   border: 1px solid $border_color;
-//   border-radius: $border_radius;
-//   input,select {
-//     border: 0;
-//   }
-//   .checkbox-group {
-//     border: 0;
-//     border-top: 1px solid $border_color;
-//     border-radius: 0;
-//   }
-// }
 
 .vs {
   display: flex;
@@ -54,186 +39,17 @@
   }
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  margin: 0 0 5px 0;
-  background-color: #fff;
-  border: 1px solid $border_color;
-  border-radius: $border_radius;
-  overflow: hidden;
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-    background-color: #f9f9f9;
-    border-bottom: 1px solid $border_color;
-  }
-  .card-body {
-    padding: 10px 5px;
-  }
-  .card-footer {
-    table {
-      width: calc(100% + 2px);
-      margin: 0 -1px -1px -1px;
-      tr td {
-        div {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-      }
-    }
-  }
-}
-
-.selection-card-container {
-  padding: 0 0 0 40px;
-  position: relative;
-  &:last-of-type {
-    &:after { display: none; }
-  }
-  &:before {
-    content: "";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px; height: 30px;
-    background-color: #f5f5f5;
-    border: 1px solid $border_color;
-    border-radius: $border_radius;
-    color: #fff;
-    font-size: 12px;
-    position: absolute;
-    top: 0; left: 0;
-    z-index: 2;
-  }
-  &:after {
-    content: "";
-    width: 1px; height: calc(100% + 10px);
-    background-color: $border_color;
-    position: absolute;
-    top: 0; left: 15px;
-    z-index: 1;
-  }
-  &.won {
-    &:before {
-      content: "W";
-      background-color: $success;
-      border-color: $success;
-    }
-  }
-  &.placed {
-    &:before {
-      content: "P";
-      background-color: $warning;
-      border-color: $warning;
-    }
-  }
-  &.lost {
-    &:before {
-      content: "L";
-      background-color: $danger;
-      border-color: $danger;
-    }
-  }
-  &.void {
-    &:before {
-      content: "V";
-      background-color: $border_color;
-      border-color: $border_color;
-    }
-  }
-  .selection-card {
-    display: flex;
-    flex-direction: column;
-    .selection-card-header {
-      display: flex;
-      padding: 5px;
-      background-color: $primary;
-      border: 1px solid $primary;
-      border-radius: $border_radius $border_radius 0 0;
-      color: #fff;
-    }
-    .selection-card-body {
-      display: flex;
-      flex-direction: column;
-      padding: 5px;
-      border: 1px solid $border_color;
-      border-radius: $border_radius $border_radius 0 0;
-      h2 {
-        font-size: 18px;
-      }
-      p {
-        font-size: 12px;
-      }
-    }
-    .selection-card-footer {
-      display: flex;
-      justify-content: space-between;
-      padding: 5px;
-      background-color: #f9f9f9;
-      border: 1px solid $border_color;
-      border-top: 0;
-      border-radius: 0 0 $border_radius $border_radius;
-      p {
-        font-size: 12px;
-      }
-    }
-  }
-}
-
-.dashboard-container {
-  display: flex;
-  flex-direction: row;
-  margin: -5px;
-  @media(max-width: $mobile) {
-    flex-direction: column;
-  }
-}
-
-.dashboard-half {
-  width: 50%;
-  @media(max-width: $mobile) {
-    width: 100%;
-    flex-wrap: wrap;
-  }
-}
-
-.dashboard-third {
-  width: 33.33%;
-  @media(max-width: $mobile) {
-    width: 100%;
-    flex-wrap: wrap;
-  }
-}
-
-.mobile-widget-scroller  {
-  @media(max-width: $mobile) {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-y: hidden;
-    overflow-x: auto;
-    white-space: nowrap;
-    .widget-container {
-      min-width: 200px; min-height: 200px;
-      .widget { min-width: 200px; min-height: 200px; }
-    }
-  }
-}
-
 .date-heading {
   display: inline-block;
   margin: 5px 0 10px 0; padding: 5px 10px;
-  background-color: #fff;
-  border: 1px solid $border_color;
+  background-color: rgba(#fff,0.1);
   border-left: 4px solid $primary;
   border-radius: 0 $border_radius $border_radius 0;
   position: relative;
   &:after {
     content: "";
     width: 9999px; height: 1px;
-    background-color: $border_color;
+    background-color: rgba(#fff,0.1);
     position: absolute;
     top: 50%; right: -9999px;
     z-index: -1;

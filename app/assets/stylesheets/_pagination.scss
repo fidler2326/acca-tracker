@@ -2,13 +2,11 @@
   display: flex;
   width: 100%; max-width: 500px;
   margin: 0 0 10px 0;
-  border: 1px solid $border_color;
   border-radius: $border_radius;
   overflow: hidden;
   span {
     display: block;
     width: 100%;
-    border-left: 1px solid $border_color;
     background-color: #fff;
     &:first-child { border: 0; }
     &.current, a {

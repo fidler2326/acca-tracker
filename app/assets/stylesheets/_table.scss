@@ -5,7 +5,6 @@ table.table {
     th,td {
       text-align: left;
       padding: 10px;
-      border-bottom: 1px solid $border_color;
       &:first-child {
         border-left: 1px solid;
       }
@@ -14,19 +13,19 @@ table.table {
       }
     }
     th {
-      background-color: #1c1c1d;
-      border-color: #1c1c1d !important;
+      background-color: $dark_alt;
+      border-color: $dark_alt !important;
       color: #fff;
     }
     td {
-      background-color: #343338;
-      border-color: #1c1c1d !important;
+      background-color: $dark;
+      border-color: $dark_alt !important;
       color: #fff;
       font-weight: 400;
       a { color: #fff; }
     }
     &:nth-child(odd) td {
-      background-color: lighten(#343338,5%);
+      background-color: lighten($dark,5%);
     }
   }
 }
@@ -37,7 +36,6 @@ table.outlined {
   tr {
     th, td {
       padding: 5px;
-      border: 1px solid $border_color;
     }
   }
 }
@@ -49,7 +47,6 @@ table.dashboard {
     td {
       text-align: left;
       padding: 20px 10px;
-      border: 1px solid $border_color;
       background-color: #fff;
     }
     &:nth-child(odd) td {

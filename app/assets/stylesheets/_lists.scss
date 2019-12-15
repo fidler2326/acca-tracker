@@ -1,0 +1,41 @@
+ul.acca-legs {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5px;
+    border-bottom: 1px dashed rgba(#fff,0.1);
+    &:last-child { border: 0; }
+    .small & {
+      padding: 0;
+    }
+    h2 {
+      color: #fff;
+      font-size: 18px;
+      text-transform: uppercase;
+      small {
+        display: block;
+        font-size: 12px;
+        font-weight: 400;
+        opacity: 0.5;
+        text-transform: capitalize;
+      }
+    }
+    p {
+      color: #fff;
+      opacity: 0.5;
+    }
+    .leg-result {
+      width: 14px; height: 14px;
+      margin: 0 10px 0 0;
+      background-color: rgba(#fff,0.1);
+      border-radius: 100%;
+      &.won { background-color: #2dab8b; }
+      &.lost { background-color: #d84762; }
+    }
+  }
+}

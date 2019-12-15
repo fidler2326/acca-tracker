@@ -1,5 +1,5 @@
 class SelectionsController < ApplicationController
-
+  include SelectionsHelper
   before_action :authenticate_user!
 
   def index
@@ -16,6 +16,7 @@ class SelectionsController < ApplicationController
 
   def edit
     @selection = Selection.find(params[:id])
+    @selection_accas = Acca.includes(:legs).where("legs.selection = ?", @selection.id).references(:legs)
   end
 
   def update

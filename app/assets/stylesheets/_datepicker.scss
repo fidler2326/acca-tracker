@@ -38,10 +38,9 @@
   font-size: 14px;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: $dark;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  border: 1px solid $border_color;
   border: 1px solid rgba(0, 0, 0, .15);
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
@@ -57,6 +56,10 @@
 .dropdown-menu table tr th,
 .dropdown-menu table tr td{
   padding: 3px;
+  &:hover {
+    background-color: rgba(#fff,0.1) !important;
+    color: #fff !important;
+  }
   &.active{
     background-color: $primary !important;
     color: #fff !important;

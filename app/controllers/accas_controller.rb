@@ -2,7 +2,6 @@ require 'nokogiri'
 
 class AccasController < ApplicationController
   include AccasHelper
-
   before_action :authenticate_user!
 
   def index
@@ -26,11 +25,6 @@ class AccasController < ApplicationController
     acca_stake  = html.css('.bet-confirmation-info-table-value').first.text.downcase.gsub('£','').strip
     acca_return = html.css('.bet-confirmation-info-table-footer-value').text.downcase.gsub('to return £','').gsub('return £','').gsub('net return £','').strip
 
-    p acca_date
-    p acca_type
-    p acca_stake
-    p acca_return
-
     Acca.create!(
       date: acca_date,
       category: Acca::Category::FOOTBALL,
@@ -48,12 +42,6 @@ class AccasController < ApplicationController
       leg_type   = get_leg_type(leg.css('.bet-confirmation-details-row-plbtdescription').text.downcase.strip)
       leg_result = leg.css('.bet-confirmation-details-row-status').text.downcase.strip
 
-      p selection
-      p odds
-      p event
-      p leg_type
-      p leg_result
-
       Leg.create!(
         acca_id:   Acca.last.id,
         leg_type:  leg_type,
@@ -67,9 +55,6 @@ class AccasController < ApplicationController
         race_time: nil,
         odds: odds
       )
-
-
-      # Horse.create!(race_id: Race.last.id, meeting_id: Meeting.last.id, number: number, name: name, form: form, trainer: trainer, jockey: jockey)
     end
     @acca = Acca.last
   end
@@ -112,8 +97,8 @@ class AccasController < ApplicationController
     @acca = Acca.find(params[:id])
     respond_to do |format|
       if @acca.update(acca_params)
-        format.html { redirect_to @acca, notice: 'Acca was successfully updated.' }
-        format.json { render :show, status: :ok, location: @acca }
+        format.html { redirect_to accas_path, notice: 'Acca was successfully updated.' }
+        format.json { render :index, status: :ok, location: @acca }
       else
         flash.now[:alert] = @acca.errors.full_messages
         format.html { render :edit }

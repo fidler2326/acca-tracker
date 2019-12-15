@@ -9,32 +9,24 @@
       </div>
     </div>
     <% accas.each do |acca| %>
-      <div class="card">
-        <div class="card-header">
-          <p class="muted"><%= acca.date.strftime("%d/%m/%Y") %></p>
+      <div class="acca-card small mar-bottom-5">
+        <div class="acca-card-header">
+          <h2>
+            <small><%= acca.date %></small>
+            <%= acca.bet_type %>
+          </h2>
           <%= link_to "<i class='fa fa-pencil' aria-hidden='true'></i> Edit".html_safe, edit_acca_path(acca) %>
         </div>
-        <div class="card-body">
-          <%= link_to get_acca_selections(acca), "", class: "open-modal get-acca", data: { acca_id: acca.id } %>
-          <p class="muted">Bet Type: <%= acca.bet_type %> | Category: <%= acca.category %></p>
-        </div>
-        <div class="card-footer">
-          <table class="outlined">
-            <tr>
-              <td style="width:50%;">
-                <div>
-                  <p>Stake:</p>
-                  <p><%= number_to_currency(acca.stake, unit: "£") %></p>
-                </div>
-              </td>
-              <td style="width:50%;">
-                <div>
-                  <p>Return:</p>
-                  <p><span class="tag <%= acca.return > 0 ? 'profit' : 'loss' %>"><%= number_to_currency(acca.return, unit: "£") %></span></p>
-                </div>
-              </td>
-            </tr>
-          </table>
+        <ul class="acca-legs small">
+          <li><%= link_to get_acca_selections(acca), "", class: "open-modal get-acca", data: { acca_id: acca.id } %></li>
+        </ul>
+        <div class="acca-card-footer">
+          <div>
+            <p class="bold">Stake: <%= number_to_currency(acca.stake, unit: "£") %></p>
+          </div>
+          <div>
+            <p class="bold">Return: <%= number_to_currency(acca.return, unit: "£") %></p>
+          </div>
         </div>
       </div>
     <% end %>

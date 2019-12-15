@@ -1,0 +1,61 @@
+.acca-card {
+  background-color: $dark;
+	border-radius: 5px;
+  .acca-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10px;
+    background-color: $dark_alt;
+    border-radius: 5px 5px 0 0;
+    h2 {
+      color: #fff;
+      font-size: 20px;
+      text-transform: uppercase;
+      small { display: block; }
+    }
+    p, small {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 400;
+      opacity: 0.5;
+    }
+  }
+  .acca-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10px;
+    background-color: rgba(#fff,0.05);
+    border-top: 1px solid rgba(#fff,0.1);
+    border-radius: 0 0 5px 5px;
+    span {
+      width: 100%;
+      &:first-of-type {
+        border-right: 1px solid rgba(#fff,0.1);
+      }
+      &:last-of-type {
+        text-align: right;
+      }
+    }
+    h2 {
+      color: #fff;
+      font-size: 18px;
+      text-transform: uppercase;
+      small {
+        display: block;
+        font-size: 12px;
+        font-weight: 400;
+        opacity: 0.5;
+      }
+    }
+  }
+  &.small {
+    .acca-card-header,.acca-card-footer {
+      padding: 10px;
+      h2 {
+        font-size: 16px;
+      }
+    }
+  }
+}
