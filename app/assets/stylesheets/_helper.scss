@@ -58,6 +58,12 @@ a{
 .flex-grow{ flex-grow: 1; }
 .flex-wrap{ flex-wrap: wrap; }
 .width-100 { width: 100%; }
+.width-33 {
+  width: 33.33%;
+  @media (max-width: $mobile) {
+    width: 100%;
+  }
+}
 .width-40 { width: 40%; }
 .width-50 { width: 50%; }
 .width-60 { width: 60%; }
