@@ -6,7 +6,7 @@ module DashboardHelper
     return {
         total_bets: accas.count,
         total_winners: accas.where("return > 0").count,
-        win_rate: (accas.where("return > 0").count * 100 / accas.count)
+        win_rate: (accas.where("return >", 0).count * 100 / accas.count) rescue 0
       }
   end
 

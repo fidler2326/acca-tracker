@@ -2,27 +2,35 @@
   display: flex;
   width: 100%; max-width: 500px;
   margin: 0 0 10px 0;
+  border: 1px solid rgba(#fff,0.1);
   border-radius: $border_radius;
   overflow: hidden;
   span {
     display: block;
     width: 100%;
-    background-color: #fff;
+    background-color: $dark;
+    border-left: 1px solid rgba(#fff,0.1);
     &:first-child { border: 0; }
     &.current, a {
       display: block;
       padding: 10px;
-      background-color: #fff;
+      background-color: $dark;
       border-left: 0;
       text-align: center;
       text-decoration: none;
+      &:hover {
+        background-color: rgba(#fff,0.1);
+      }
     }
-    &.current {
+    &.current, &.current:hover {
       background-color: $primary;
       color: #fff;
     }
     &.gap {
-      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $dark;
       text-align: center;
     }
   }
