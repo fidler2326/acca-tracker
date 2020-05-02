@@ -19,7 +19,7 @@ class DashboardController < ApplicationController
       values << Time.zone.parse(params[:date_from]).utc.strftime('%Y-%m-%d') rescue params[:date_from]
       values << Time.zone.parse(params[:date_to]).utc.strftime('%Y-%m-%d') rescue params[:date_to]
     else
-      values << "#{Date.current.year}-08-01"
+      values << "#{Date.current.year - 1}-08-01"
       values << Date.today.strftime('%Y-%m-%d')
     end
 
